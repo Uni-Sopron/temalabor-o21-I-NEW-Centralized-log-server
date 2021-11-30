@@ -1,2 +1,0 @@
-# Centralized log server dokumentáció
-
