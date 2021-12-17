@@ -36,11 +36,7 @@ sudo apt install nginx
 Elérhetővé kell tennünk az összes, a Stack-et alkotó alkalmazást,<br> hogy csomagkezelővel egyszerűen tudjuk őket telepíteni.
 ```console
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
-```
-```console
 sudo apt install apt-transport-https
-```
-```console
 echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee –a /etc/apt/sources.list.d/elastic-7.x.list
 ```
 ### Komponensek telepítése
@@ -48,8 +44,6 @@ echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee 
 A Stack szívének telepítése előtt frissíteni kell a repokat.
 ```console
 sudo apt update
-```
-```console
 sudo apt install elasticsearch
 ```
 **Konfigurálás:**
@@ -208,11 +202,7 @@ A <server-IP-hostname> helyére a fizikai interfészünk címe (vagy hostneve) k
   Kibana site engedélyezése és a default config lecserélése:
   ```console
   sudo ln -s /etc/nginx/sites-available/kibana /etc/nginx/sites-enabled/
-```
-  ```console
   sudo unlink /etc/nginx/sites-enabled/default
-```
-  ```console
   systemctl restart nginx
 ```
   Most már a böngészőnkből a Kibana-t a 80-as porton érjük el (http://localhost).
@@ -233,11 +223,9 @@ A <server-IP-hostname> helyére a fizikai interfészünk címe (vagy hostneve) k
 Az Nginx újraindítása utána az alap autentikáció is müködőképes lesz.
   
 #### Alkalmazáslogok figyelése, kliensekről is
-Az Nginx logokat egyszerűen monitorozhatjuk a filebeat nginx moduljának bekapcsolásával:
+Az Nginx logokat egyszerűen monitorozhatjuk a filebeat `nginx` moduljának bekapcsolásával:
 ```console
   sudo filebeat modules enable nginx
-  ```
-```console
   sudo systemctl restart filebeat
   ```
   További modulok listázáshoz:
@@ -269,5 +257,13 @@ Engedélyezzük a kívánt modulokat:
   sudo filebeat modules enable system nginx
   ```
 #### Filebeat metrics logging érdekesség
+A Filebeat alapértelmezetten fél percenként küld egy különböző metrikákat tartalmazó fájlt.<br> Az a gond, hogy valamiért ezek a naplósorok bekerülnek valamiért a syslog-ba is, arról nem is szólva, hogy az Elasticsearch is ezen fájlokkal terhelődik és lényegi információt nem nyújtanak.<br>
+A funkció kikapcsolására tett kísérlet nem járt sikerrel, se a logolási periódus növelése sem,<br> az alábbi sorok beillesztése a filebeat.yml fájlokba (minden hoston) megoldotta a problémát:
+ ```yml
+ logging:
+  level: info
+  to_files: true
+  to_syslog: false
+ ```
  
   
