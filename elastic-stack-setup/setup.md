@@ -109,7 +109,7 @@ sudo systemctl start logstash
 sudo systemctl enable logstash
 ```
 Teljesen testreszabhatóak az input, filter, output pipeline-ok, ezek konfigurációi `/etc/logstash/conf.d/` helyen tárolandóak.<br>
-Alap pipeline (Beats --> Logstash --> Elasticearch):
+Alap pipeline (Beats --> Logstash --> Elasticsearch):
 ```properties
 input {
   beats {
