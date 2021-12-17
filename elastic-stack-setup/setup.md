@@ -258,7 +258,7 @@ Engedélyezzük a kívánt modulokat:
   ```
 #### Filebeat metrics logging érdekesség
 A Filebeat alapértelmezetten fél percenként küld egy különböző metrikákat tartalmazó fájlt.<br> Az a gond, hogy valamiért ezek a naplósorok bekerülnek valamiért a syslog-ba is, arról nem is szólva, hogy az Elasticsearch is ezen fájlokkal terhelődik és lényegi információt nem nyújtanak.<br>
-A funkció kikapcsolására tett kísérlet nem járt sikerrel, se a logolási periódus növelése sem,<br> az alábbi sorok beillesztése a filebeat.yml fájlokba (minden hoston) megoldotta a problémát:
+A funkció kikapcsolására tett kísérlet nem járt sikerrel, a logolási periódus növelése sem,<br> az alábbi sorok beillesztése a filebeat.yml fájlokba (minden hoston) megoldotta a problémát:
  ```yml
  logging:
   level: info
