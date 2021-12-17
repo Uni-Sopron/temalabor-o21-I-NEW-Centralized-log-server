@@ -103,8 +103,6 @@ Mivel az Nginx reverse proxyként fog szolgálni, így itt is megfelel az alapko
 **Indítás:**
 ```console
 sudo systemctl start kibana
-```
-```console
 sudo systemctl enable kibana
 ```
 Tesztelhető a böngészőnkből: http://localhost:5601 
@@ -113,11 +111,7 @@ Különböző forrásokból érkező logok processtálására, szűrésére, tov
 **Telepítés:**
 ```console
 sudo apt install logstash
-```
-```console
 sudo systemctl start logstash
-```
-```console
 sudo systemctl enable logstash
 ```
 Teljesen testreszabhatóak az input, filter, output pipeline-ok, ezek konfigurációi `/etc/logstash/conf.d/` helyen tárolandóak.<br>
@@ -172,11 +166,8 @@ sudo filebeat setup -e \
   -E output.logstash.enabled=false \
   -E output.elasticsearch.hosts=['localhost:9200'] \
   -E setup.kibana.host=localhost:5601
-```
-```console
+
 sudo systemctl start filebeat
-```
-```console
 sudo systemctl enable filebeat
 ```
 Ellenőrizzük, hogy az Elasticsearch kap-e adatot:
@@ -192,8 +183,6 @@ Innentől a logfájljaink elérhetőek, akár a Discover menün keresztül.
 A biztonság növelése érdekében a legegyszerűbb módot alkalmazzuk:<br> Egy proxyt teszünk a Kibana elé, amely egy alap felhasználói autentikációt kér.
 ```console
 sudo systemctl enable nginx
-```
-```console
 sudo nano /etc/nginx/sites-available/kibana
 ```
 ```properties
@@ -261,8 +250,6 @@ Elegendő csak a Filebeat-et telepíteni (akkor ha logfájlok gyűjtésére van 
   
 ```console
   curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.16.1-amd64.deb
-```
-  ```console
   sudo dpkg -i filebeat-7.16.1-amd64.deb
 ```
 A csomag telepítése után csatlakoztatni kell a kliensgépet az Elastic Stack-hez. <br>
@@ -281,8 +268,6 @@ Engedélyezzük a kívánt modulokat:
   ```console
   sudo filebeat modules enable system nginx
   ```
- TODO
- - [ ] manual parsing (nginx, apache)
- - [ ] facility, severity fields
+#### Filebeat metrics logging érdekesség
  
   
