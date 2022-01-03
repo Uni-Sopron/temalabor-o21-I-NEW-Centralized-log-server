@@ -1,21 +1,28 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Nav from "./Nav";
+import Navigation from "./Navigation";
+import Introduction from './pages/Introduction'
+import Dev from './pages/Dev'
+import Problem from './pages/Problem'
+import Summary from './pages/Summary'
+import Tech from './pages/Tech'
+import Timeline from './pages/Timeline'
+import Usermanual from './pages/Usermanual'
+import './App.css';
 
-import Home from './pages/Home'
-import Balint from './pages/Balint'
-import Abel from './pages/Abel'
-import Mate from './pages/Mate'
 function App() {
 
   return (
     <BrowserRouter>
-      <Nav />
+      <Navigation />
       <Routes>
-        <Route exact path="/" element={ <Home/> }/>
-        <Route exact path="/mate" element={ <Mate/> }/>
-        <Route exact path="/abel" element={ <Abel/> }/>
-        <Route exact path="/balint" element={ <Balint/> }/>
+        <Route exact path="/" element={ <Introduction/> }/>
+        <Route exact path="/problem" element={ <Problem/> }/>
+        <Route exact path="/tech" element={ <Tech/> }/>
+        <Route exact path="/usermanual" element={ <Usermanual/> }/>
+        <Route exact path="/dev" element={ <Dev/> }/>
+        <Route exact path="/timeline" element={ <Timeline/> }/>
+        <Route exact path="/summary" element={ <Summary/> }/>
       </Routes>
     </BrowserRouter>
   );
