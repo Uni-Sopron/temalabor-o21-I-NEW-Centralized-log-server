@@ -1,0 +1,3 @@
+- [ ] logok gyűjtése, parsolása filebeat modulok használata nélkül (pl. apache)
+- [x] syslog severity, facility level kiszűrése 
+- [ ] egyéb logok logleveljének kiszűrése
