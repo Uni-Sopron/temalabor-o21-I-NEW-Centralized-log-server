@@ -266,4 +266,28 @@ A funkció kikapcsolására tett kísérlet nem járt sikerrel, a logolási peri
   to_syslog: false
  ```
  
-  
+ #### Syslog severity, facility kinyerése
+ Fontos lehet a logok súlyossági szintjének megfelelő lekérdezéseket gyártani, ehhez valahogyan meg kéne tudnunk egyes logok milyen szintűek.
+ A probléma az volt hogy a `syslog` fájlban nem szerepelt a priority mező amiből tudnánk meghatározni a facility és severity levelt.
+ Ahhoz, hogy tudjunk priority-t generálni a `syslog` sorokhoz az `rsyslog`-ot kellett segítségül hívni.
+ Mivel az alap template nem felel meg (a pri hiányában) ezért csinálnunk kell egyet ('rsyslog.conf'):
+ ```properties
+$template TraditionalFormatWithPRI,"%pri% %timegenerated% %HOSTNAME% %syslogtag%%msg:::drop-last-lf%\n"
+$ActionFileDefaultTemplate TraditionalFormatWithPRI
+ ```
+Ezek után a `logstash` filter így alakul:
+ ```properties
+ filter {
+  if [event][module] == "system" {
+    grok {
+      match => { "message" =>"%{POSINT:syslog_pri} %{SYSLOGTIMESTAMP:syslog_timestamp} %{SYSLOGHOST:syslog_hostname} %{DATA:syslog_program}(?:\[%{POSINT:syslog_pid}\])?: %{GREEDYDATA:syslog_message}" }
+
+    }
+    syslog_pri { }
+    date {
+      match => [ "syslog_timestamp", "MMM  d HH:mm:ss", "MMM dd HH:mm:ss" ]
+    }
+ 
+  }
+```
+ A `syslog_pri { }` filter plugin segít nekünk olvasható formában kinyerni a severity és facility levelt. Most már bekerülnek ezek a mezők is az Elasticsearch-be.
