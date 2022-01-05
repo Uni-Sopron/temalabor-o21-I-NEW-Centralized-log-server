@@ -1,5 +1,4 @@
 ### TODO:
-- [ ] manual parsing (logstash filter nginx, apache)
-- [ ] add severity, facility fields
-- [ ] different index pattern for each app
-- [ ] search by severity, facility
+- [ ] filebeat modul nélkül parsolás (apache)
+- [ ] severity, facility mező nem syslogokra
+- [x] syslog severity, facility
