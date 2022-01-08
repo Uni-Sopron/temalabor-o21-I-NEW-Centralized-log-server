@@ -18,13 +18,13 @@ const Introduction = () => {
                 Jó lenne egy olyan megoldást találni, mellyel ezeket a logokat egy központi rendszerbe lehet gyűjteni, és emberi szem számára kellemes formában lekérdezhetőek, elemzések készíthetőek.
             </p>
             <p className="mt-2">
-                A feladatunk egy központosított naplószerver létrehozása volt a <b> <a href='https://www.linkedin.com/company/cyansecurity/?originalSubdomain=hu'>cyan Security Group</a></b> részére. A cég tesztelésképp 3 szervert és szerverenként 2-2 darab klienst biztosított nekünk Linux (Ubuntu) operációs rendszerrel. A probléma megoldásához kizárólag
-                open source szoftvereket használtunk. A munka három fő fázisból állt melyek a következők:
+                A feladatunk egy központosított naplószerver létrehozása volt a <a className='link-style' target="_blank" rel='noopener noreferrer' href="https://www.linkedin.com/company/cyansecurity/?originalSubdomain=hu">cyan Security Group</a> részére, mely vállalat open-source biztonsági megoldásokat kínál. A cég tesztelésképp 3 szervert és szerverenként 2-2 darab klienst biztosított nekünk <a className='link-style' target="_blank" rel='noopener noreferrer' href='https://ubuntu.com/'>Linux (Ubuntu)</a> operációs rendszerrel. A probléma megoldásához kizárólag
+                nyílt szoftvereket használtunk. A munka három fő fázisból állt melyek a következők:
             </p>
-                <ListGroup className='mt-2'>
-                    <ListGroup.Item>A szoftverek telepítése.</ListGroup.Item>
-                    <ListGroup.Item>A telepített szoftverek konfigurálása, testreszabása.</ListGroup.Item>
-                    <ListGroup.Item>A rendszer tesztelése.</ListGroup.Item>
+                <ListGroup as='ol' numbered className='w-50'>
+                    <ListGroup.Item as='li'>A szoftverek telepítése.</ListGroup.Item>
+                    <ListGroup.Item as='li'>A telepített szoftverek konfigurálása, testreszabása.</ListGroup.Item>
+                    <ListGroup.Item as='li'>A rendszer tesztelése.</ListGroup.Item>
                 </ListGroup>
             <p className="mt-2">
                 A cég rendszerei különböző naplófájlokat generálnak, viszont jelenleg nincs központosított naplószerverük, illetve voltak próbálkozások, de nem volt egyértelmű, hogy melyik technológiai megoldás lenne a legoptimálisabb.
