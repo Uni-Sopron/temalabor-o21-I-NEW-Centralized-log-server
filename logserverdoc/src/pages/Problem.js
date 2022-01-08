@@ -18,13 +18,14 @@ const Problem = () => {
                 Ezek alapvetően rendszermérnöki problémák, melyekre léteznek nyílt forráskódú megoldások, így nem kell nekünk megírnunk a sajátunkat, hanem
                 dolgozhatunk a jól bevált költséghatékony technológiákkal. 
             </p>
-            <p>A munka megkezdése előtt le kellett fektetni a követelményeket, melyek egyeznek a cég elvárásaival,
+            <p className='mt-2'>
+                A munka megkezdése előtt le kellett fektetni a követelményeket, melyek egyeznek a cég elvárásaival,
                 a tapasztalatunkkal és a tárgy teljesítéséhez szükséges feltételekkel. Ezek a következők:
             </p>
             <h4>
                 Követelmények
             </h4>
-                <ListGroup as='ol' numbered className='w-50'>
+                <ListGroup as='ol' numbered className='mt-2'>
                     <ListGroupItem as='li'>
                         <b>Ismerkedés a Linux alapú operációs rendszerekkel (Ubuntu)</b>
                         <div>
