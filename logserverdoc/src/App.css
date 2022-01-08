@@ -1,3 +1,6 @@
 .navbar-inner {
     background:transparent;
 }
+p {
+    text-align : justify;
+}
