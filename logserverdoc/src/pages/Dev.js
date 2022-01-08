@@ -1,8 +1,16 @@
+import React from 'react';
+import { Container, Badge } from 'react-bootstrap';
+
 const Dev = () => {
     return (
-        <div>
-            Fejlesztői bemutatás
-        </div>
+        <Container className='mt-5'>
+            <h2>
+                <Badge bg="secondary">5.</Badge> Fejlesztői bemutatás
+            </h2>
+            <p className='mt-2'>
+                
+            </p>
+        </Container>
     )
 }
 export default Dev

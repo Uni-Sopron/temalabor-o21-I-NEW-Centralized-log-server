@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Badge, ListGroup } from 'react-bootstrap';
+
 const Introduction = () => {
     return (
         <Container className="mt-5">
@@ -9,15 +10,18 @@ const Introduction = () => {
             <p className="mt-2">
                 Szinte mindegyik operációs rendszer, alkalmazás generál naplófájlokat. Ezek a fájlok rögzítik az operációs rendszerben bekövetkezett eseményeket,
                 szoftverfuttatásokat, vagy felhasználók közötti üzeneteket. A naplófájlokból rengeteg információt megtudhatunk, ezért is fontosak. Ki / Mi? Mikor? Hol? készítette, mennyire súlyos, vagy esetleg
-                csak informatív jellegű. Képzeljük, csak el, hogy egy vállalati környezetben működő szerverek, azok szolgáltatásai, webes alkalmazások, asztali alkalmazások mennyi naplófájlt generálnak.
+                csak informatív jellegű. 
+            </p>
+            <p className='mt-2'>
+                Képzeljük, csak el, hogy egy vállalati környezetben működő szerverek, azok szolgáltatásai, webes alkalmazások, asztali alkalmazások mennyi naplófájlt generálnak.
                 Lehetetlenség külön minden forrásra figyelni, reagálni a hibákra.
                 Jó lenne egy olyan megoldást találni, mellyel ezeket a logokat egy központi rendszerbe lehet gyűjteni, és emberi szem számára kellemes formában lekérdezhetőek, elemzések készíthetőek.
             </p>
             <p className="mt-2">
-                A feladatunk egy központosított naplószerver létrehozása volt a <b>cyan Security Group</b> részére. A cég tesztelésképp 3 szervert és szerverenként 2-2db klienst biztosított nekünk Linux (Ubuntu) operációs rendszerrel. A probléma megoldásához kizárólag
+                A feladatunk egy központosított naplószerver létrehozása volt a <b> <a href='https://www.linkedin.com/company/cyansecurity/?originalSubdomain=hu'>cyan Security Group</a></b> részére. A cég tesztelésképp 3 szervert és szerverenként 2-2 darab klienst biztosított nekünk Linux (Ubuntu) operációs rendszerrel. A probléma megoldásához kizárólag
                 open source szoftvereket használtunk. A munka három fő fázisból állt melyek a következők:
             </p>
-                <ListGroup className="mt-2">
+                <ListGroup className='mt-2'>
                     <ListGroup.Item>A szoftverek telepítése.</ListGroup.Item>
                     <ListGroup.Item>A telepített szoftverek konfigurálása, testreszabása.</ListGroup.Item>
                     <ListGroup.Item>A rendszer tesztelése.</ListGroup.Item>
