@@ -20,9 +20,22 @@ const Timeline = () => {
         >
             <h3 className="vertical-timeline-element-title">Követelmények megbeszélése</h3>
             <p>
-            A cyan Security által meghirdetett téma átbeszélése, ismerkedés a belső és külső konzulenssel, a tanulmányozandó technológiák feltérképezése.
+            A cyan Security által meghirdetett téma átbeszélése, ismerkedés a belső és külső konzulenssel.
             A haladásról hetente, másfél hetente jelentünk a belső konzulensnek.
+            A témakidolgozás egy összehasonlítás három, piacon elterjedt technológiáról:
+            <ul>
+                <li>
+                Rácz Máté - ELK Stack (Elastic)
+                </li>
+                <li>
+                Mandl Ábel - EFK Stack
+                </li>
+                <li>
+                Horváth Bálint - Graylog
+                </li>
+            </ul>
             </p>
+        
         </VerticalTimelineElement>
         <VerticalTimelineElement
             className="vertical-timeline-element--work"
