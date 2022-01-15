@@ -15,3 +15,10 @@ p {
     text-decoration: none;
     font-weight: bolder;
 }
+.vertical-timeline-element-date {
+    color: #000;
+}
+.table td, .table th {
+    text-align: center;
+    vertical-align: middle;
+}
