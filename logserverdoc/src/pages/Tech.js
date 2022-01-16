@@ -39,12 +39,7 @@ const Tech = () => {
                             <td>A Fluentd előnye, hogy nem használja a Javat.</td>
                         </tr>
 
-                        <tr>
-                            <td><b>Programnyelv</b></td>
-                            <td>JRuby, szükséges Java runtime.</td>
-                            <td>CRuby, nincs szükség a Javara.</td>
-                            <td>A Fluentd előnye, hogy nem használja a Javat.</td>
-                        </tr>
+                       
                         <tr>
                             <td><b>Eseménykezelés</b></td>
                             <td>If, else kondíciók pl. <code>if[loglevel] == 'ERROR'</code></td>
