@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Badge, ListGroup, ListGroupItem } from 'react-bootstrap';
-
+import kep from "../images/mclog.png"
 const Problem = () => {
     return (
         <Container className='mt-5'>
@@ -9,7 +9,7 @@ const Problem = () => {
             </h2>
             <p className='mt-2'>
                 A <b>cyan Security Group</b> azt szeretné, hogy a hálózat sokféle eszközének rendszernaplóit, valamint az egyedi és nem egyedi szoftveres megoldásokat
-                monitorozni (<b>akár valós időben, indexelve!</b>) tudjuk a magas rendelkezésre állás és gyors hibakezelések érdekében. Ehhez nem elég egy SSH kapcsolattal megkeresni az adott szolgáltatás elérési útját és hosszasan böngészni a naplókat.
+                monitorozni (<b>akár valós időben, indexelve!</b>) tudjuk a magas rendelkezésre állás és gyors hibakezelések érdekében. Ehhez nem elég hosszasan böngészni a naplókat lokálisan.
                 Erre nincsen idő egy vállalati környezetben.
                 Sokszor a naplósorokat nem is lehet értelmezni (pl. többsoros, bonyolult), ezeket érdemes lenne úgy processzálni, hogy használhatóak legyenek.
                 Egyszerre nézegetni a fájlokat is igen megterhelő lenne, hiszen előfordulhat, hogy több számunkra érdekes forrás is van, mint 4-5 darab, így kényelmesebb lenne egy GUI használata.
@@ -31,6 +31,8 @@ const Problem = () => {
                 30 Jan 16 14:30:01 UNI-Server02 systemd[1]: Started Session 178 of user cyanadm.</code><br></br>
                
            </div>
+           <p className='mt-4'>Esetleg böngészgethetjük az auth.log fájlt így:</p>
+           <img src={kep} width="100%" alt=''></img>
            <p className='mt-3'> Vagy ha hibák érdekelnek minket:</p>
            <div style={{background: "#0021", borderRadius: "3px", padding: "5px", boxShadow: "5px 10px 8px #888888"}}>
            <code> 
