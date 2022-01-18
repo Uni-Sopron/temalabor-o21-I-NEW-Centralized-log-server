@@ -86,8 +86,18 @@ const Tech = () => {
                     EFK Stack
                 </h3>
                 <p>
+                    <h4>Fluentd</h4>
+                    <p><b>E(F)K?</b></p>
                     Az EFK Stack, az ELK-hoz hasonló központosított loggyűjtő és megjelenítő megoldás. A három open-source program (elasticsearch, logstash, kibana) közül ugyanis
                     itt kimarad a logstash, helyét a <b>fluentd</b> váltja fel.
+                    <p style={{ marginTop: 10 }}><b>Mi az a fluentd?</b></p>
+                    
+                    A fluentd is, akárcsak a logstash egy nyílt forráskódú adatgyűjtő szoftver. Megkönnyíti az összegyüjtött adatok értelmezését és elemzését. Leggyakrabban központi loggyűjtő megoldásokhoz használják, ahogy mi is tettük.
+                    A fluentd és a logstash közötti különbségeket alább egy táblázatban gyűjtöttük ki. A legfontosabb különbség a teljesítmény. A fluentd lényegesebben kevesebb plugint használ az alap csomagban, mint a logstash. Inkább a teljesítmény növelésére lett kifejlesztve.
+                    Ugyanakkor a konfigurációja pont emiatt kicsit összetettebb lehet.
+                    A fluentd feladata leválasztani a különböző rendszerek naplófájlait és így egy egységes naplózási réteget biztosít. A rétegnek köszönhetően a fejlesztők, adatelemzők nyugodtan generálatnak
+                    sokféle logtípust. A szerveren a háttérben futhat, közben folyamatosan gyűjti, elemzi, átalakítja az adatokat. Ezen tulajdonságainak köszönhetően a rendszer segíti a naplóadatok gyors feldolgozását és csökkenti a szervezet félretájékoztatásának kockázatát.
+                    A technológia elterjedése az úgynevezett konténeres környezeteknek is köszönhető, hiszen ott is egyszerű konfigurálni.
                     <Table striped bordered hover style={{ marginTop:20}}>
                     <thead>
                         <tr>
