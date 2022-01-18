@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Badge, Table, ListGroup, ListGroupItem } from 'react-bootstrap';
-
+import { Container, Badge, Table, ListGroup, ListGroupItem, Alert } from 'react-bootstrap';
+import elk from '../images/elk.svg'
 const Tech = () => {
     const fluentd_conf = "<match logtype.error>type...</match>"
     return (
@@ -40,12 +40,48 @@ const Tech = () => {
                 </ListGroup>
                 
                 <h3>
-                    Elastic Stack (ELK)
+                    <a href='https://www.elastic.co/'>Elastic Stack (ELK) </a>
                 </h3>
                 <p>
-                    Az ELK egy betűsző, 3 nyílt-forráskódú projektet takar: Elasticsearch, Logstash és Kibana.
-                    ...
+                    Az <b>ELK</b> egy betűsző, 3 nyílt-forráskódú projektet takar: <b>Elasticsearch</b>, <b>Logstash</b> és <b>Kibana. </b>
+                    Mondhatni ez a piacvezető rendszer naplófájlok gyűjtésére és elemezésére.
                 </p>
+                <img src={elk} width="40%" className='mb-3'></img>
+                <h4>Elasticsearch</h4>
+                <p>Az Elasticsearch egy ingyenes, nyílt analítikai motor mindenféle adattípusra,
+                    akár legyen az strukturált vagy nem-strukturált. Az <b>Apache Lucene</b> alapján készült (Java alapú), és 2010-ben jelent meg.
+                    Ismert az egyszerű REST API-jairól, skálázhatóságáról és gyorsaságáról, ez a komponens az Elastic Stack szíve és lelke, amely Stack
+                    egy olyan eszközgyűjtemény, melyben szerepet kap az adatok beérkeztetése, tárolása, analízálása és vizualizálása.
+                    Még gyakran hivatkoznak rá ELK Stack-ként, azonban már a <b>Beats</b> projektet is hozzácsatolták az eddigiekhez, a név Elastic lett és már erőforrásbarát "adatszállítókat" kaptunk.
+                </p>
+                <h6>Mire használatos?</h6>
+                Az Elasticsearch tulajdonságait kihasználva számtalan esetben használható:
+                <ul>
+                    <li>
+                        Logging és log elemzés
+                    </li>
+                    <li>
+                        Infrastruktúra metrikák és konténerizációs megoldások monitorozása
+                    </li>
+                    <li>
+                        Performancia monitoring
+                    </li>
+                    <li>
+                        Biztonsági analítika
+                    </li>
+                    <li>
+                        Üzleti elemzések
+                    </li>
+                </ul>
+                <h6>Hogyan működik?</h6>
+                <p>Az Elasticsearch különböző helyekről képes fogadni nyers adatokat: naplók, metrikák, webes alkalmazások...
+                Az adat "lenyelés" (data ingestion) olyan folyamat, mely által a nyers adat parszolva, normalizálva lesz mielőtt még indexelve lenne az adatbázisban.
+                Miután az adatok index minták (index pattern) alapján tárolásra kerülnek komplex, aggregált lekérdezéseket is tudunk használni.
+                </p>
+                <Alert variant='info'>
+                    <Alert.Heading as= "h6">Elastic indexek</Alert.Heading>
+                    Az Elastic indexek olyan dokumentumok gyűjteménye, amelyek egymással kapcsolatban vannak. Az Elasticsearch JSON dokumentumokban tárol.
+                </Alert>
                 <h3>
                     EFK Stack
                 </h3>
