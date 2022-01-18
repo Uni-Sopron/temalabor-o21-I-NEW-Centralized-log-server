@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Badge, Table } from 'react-bootstrap';
+import { Container, Badge, Table, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 const Tech = () => {
     const fluentd_conf = "<match logtype.error>type...</match>"
@@ -9,6 +9,43 @@ const Tech = () => {
                 <Badge bg="secondary">3.</Badge> Technológia
             </h2>
             <p className='mt-2'>
+                <h3>
+                    Közösen használt technológiák
+                </h3>
+                <p>A közösen használt eszközök közé azok tartoznak, melyeket a cyan Security biztosított a számunkra, vagy valamilyen segédeszközök voltak.</p>
+                <ListGroup className='mb-3'>
+                    <ListGroupItem>
+                        <b>Ubuntu 20.04</b>
+                        <p>Debian-alapú Linux disztribúció, melynek a szerver változatát használtuk értelemszerűen.
+                        Több alternatíva is előkerült, de kezdésként, és az erős közösségi támogatottsága miatt erre esett a választás.</p>
+                    </ListGroupItem>
+                    <ListGroupItem>
+                        <b>Proxmox VE</b>
+                        <p>Nyílt virtualizációs környezet, QEMU/KVM és LXC alapján, melyben a virtuális szervereink készültek.</p>
+                    </ListGroupItem>
+                    <ListGroupItem>
+                        <b>VPN (FortiClient)</b>
+                        <p>Ahhoz, hogy el tudjuk érni a céges erőforrásokat, egy VPN tunnel-re volt szükségünk.
+                        Ezáltal elérhetővé váltak a belső IP címek, így a virtuális gépek is</p>
+                    </ListGroupItem>
+                    <ListGroupItem>
+                        <b>PuTTY</b>
+                        <p>Egy elterjedt SSH kliens, megszokásból használtuk ennél a feladatnál is ezt.
+                        Igaz, nem volt kötelező, használhattuk volna a Windows-os parancssorunkat is, de 3 SSH kapcsolatnál érdemes menedzselni ezeket.</p>
+                    </ListGroupItem>
+                    <ListGroupItem>
+                        <b>Midnight Commander</b>
+                        <p>A Total Commander terminálos megfelelője. Segítségével egyszerűbbé vált az elérési útak böngészése.</p>
+                    </ListGroupItem>
+                </ListGroup>
+                
+                <h3>
+                    Elastic Stack (ELK)
+                </h3>
+                <p>
+                    Az ELK egy betűsző, 3 nyílt-forráskódú projektet takar: Elasticsearch, Logstash és Kibana.
+                    ...
+                </p>
                 <h3>
                     EFK Stack
                 </h3>
@@ -78,33 +115,19 @@ const Tech = () => {
                     </tbody>
                     </Table>
                 </p>
-                <p>
+                
                     <h3>Graylog</h3>
                      <p>  
-                        A Graylog egy opensoucre platform, amely leegyszerűsítí a strukturált és a strukturálatlan adatrekordok kezelését.</p>
+                        A Graylog egy opensoucre platform, amely leegyszerűsítí a strukturált és a strukturálatlan adatrekordok kezelését.
 
-                        Négy komponensből áll:
-                        <tr>
-                        <td>Elasticsearch 7.15.2</td>
-<td>MongoDB 4.0.27</td>
-<td>Filebeat 7.15.2</td>
-<td>Graylog 4.2.1 </td>
-
-</tr>
+                        Négy komponensből áll:</p>
+                        </p>
+                        <p>Elasticsearch 7.15.2</p>
+                        <p>MongoDB 4.0.27</p>
+                        <p>Filebeat 7.15.2</p>
+                        <p>Graylog 4.2.1</p> 
 
 
-
-
-
-
-
-
-
-
-
-
-                </p>
-            </p>
         </Container>
     )
 }
