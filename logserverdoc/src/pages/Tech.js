@@ -79,7 +79,30 @@ const Tech = () => {
                     </Table>
                 </p>
                 <p>
-                    ...
+                    <h3>Graylog</h3>
+                     <p>  
+                        A Graylog egy opensoucre platform, amely leegyszerűsítí a strukturált és a strukturálatlan adatrekordok kezelését.</p>
+
+                        Négy komponensből áll:
+                        <tr>
+                        <td>Elasticsearch 7.15.2</td>
+<td>MongoDB 4.0.27</td>
+<td>Filebeat 7.15.2</td>
+<td>Graylog 4.2.1 </td>
+
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
                 </p>
             </p>
         </Container>
