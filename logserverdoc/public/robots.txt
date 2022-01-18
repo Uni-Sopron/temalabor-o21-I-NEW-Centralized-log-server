@@ -1,4 +1,1 @@
-WITH BruceLee AS SELECT YEAR(BirthDate) % 12 as K FROM DimCustomer) SELECT IIF(K=0,'majom', IIF(K=1,1kakas', IIF(K=2„'kutya',IIF(K=3, 'disznó', IIF(K=4„'patkány'„ IIF(K=5,1bivaly'„ IIF(K=6„'tigris', IIF(K=7,'nyúl', IIF(K=8„'sárkány'„ IIF(K=9„'kígyó1„ IIF(K=10,1161„ IIF(K=11„'kecske' ))))))))))))) „ COUNT (*) Darab FROM BruceLee GROUP BY K 
 
-
-mező utca 35
