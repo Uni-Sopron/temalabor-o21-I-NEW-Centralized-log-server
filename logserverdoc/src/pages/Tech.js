@@ -9,6 +9,7 @@ const Tech = () => {
             <h2>
                 <Badge bg="secondary">3.</Badge> Technológia
             </h2>
+            <hr></hr>
             <p className='mt-2'>
                 <h3>
                     Közösen használt technológiák
@@ -43,6 +44,7 @@ const Tech = () => {
                 <h3>
                     <a href='https://www.elastic.co/'>Elastic Stack (ELK) </a>
                 </h3>
+                <hr></hr>
                 <p>
                     Az <b>ELK</b> egy betűsző, 3 nyílt-forráskódú projektet takar: <b>Elasticsearch</b>, <b>Logstash</b> és <b>Kibana. </b>
                     Mondhatni ez a piacvezető rendszer naplófájlok gyűjtésére és elemezésére.
@@ -99,13 +101,35 @@ const Tech = () => {
                 <p> A Logstash szintén az ELK Stack magját képzi, ám használata nem kötelező. Az a funkciója, hogy preprocesszálja az adatokat, mielőtt még az Elasticsearch adatbázisba kerülnének.
                 Ez a köztes rész, mint egy pipeline teszi lehetővé a többféle forrásból szimultán áramló adatok transzformálva legyenek.
                 Igen gazdag pluginkészlettel rendelkezik, különféle szűrők írhatóak benne, elágazásokkal, inputokkal és outputokkal.</p>
-                Példa:
-                <div style={{background: "#0021", borderRadius: "3px", padding: "5px", boxShadow: "5px 10px 8px #888888"}}>
-                
-            
-                     
+                <h6>Példa pipeline, Apache access logokra</h6>
+                <div style={{background: "#0021", borderRadius: "3px", padding: "5px", boxShadow: "5px 10px 8px #888888"}} className='mb-3'>
+                <pre>
+                    <code className='language'>
+                {`input {
+    beats {
+        port => "5044"
+    }
+}
+filter {
+    if [fileset][name] == "access" {
+        grok {
+            match => { "message" => "%{COMBINEDAPACHELOG}"}
+        }
+    }
+}
+output {
+    elasticsearch {
+        hosts => [ "localhost:9200" ]
+    }
+}  `}
+                    </code>          
+                </pre>
                 </div>
-                <h4>Kibana</h4>
+                <p>Ennél a példánál az <code>input</code> plugin Beats adatokat fog fogadni az 5044-es porton,
+                    apache-access logokra szűrünk. A <code>grok</code> egy mintára illeszti a sorokat, bizonyos mezőkhöz rendeli a sor részeit, majd ezeken további módosítások hajthatóak végre.
+                    Az <code>output</code> plugin az átdolgozott adatot az elasticsearchnek fogja küldeni.
+                </p>
+                <h4 className='mt-3'>Kibana</h4>
                 <p>A Kibana pedig az adatok vizualizálásáért és menedzseléséért felel. Valós-idejű hisztogramok, vonaldiagrammok, pie chart-ok és térképek készíthetőek többek közt benne.
                 Fontos eszközök, amik említésre méltóak és elérhetőek a Kibana felületen: Grok Debugger (A Logstash szűrők írása miatt érdemes használni), Console (REST API használata), Alerts (behatolások detektálása) stb.
                 Lényegében ez a rendszer frontend-je.</p>
@@ -120,12 +144,13 @@ const Tech = () => {
                 <h3>
                     EFK Stack
                 </h3>
+                <hr></hr>
                 <p>
                     <h4>Fluentd</h4>
-                    <p><b>E(F)K?</b></p>
+                    <h6>E(F)K?</h6>
                     Az EFK Stack, az ELK-hoz hasonló központosított loggyűjtő és megjelenítő megoldás. A három open-source program (elasticsearch, logstash, kibana) közül ugyanis
                     itt kimarad a logstash, helyét a <b>fluentd</b> váltja fel.
-                    <p style={{ marginTop: 10 }}><b>Mi az a fluentd?</b></p>
+                    <h6 className='mt-3'>Mi az a fluentd?</h6>
                     
                     A fluentd is, akárcsak a logstash egy nyílt forráskódú adatgyűjtő szoftver. Megkönnyíti az összegyüjtött adatok értelmezését és elemzését. Leggyakrabban központi loggyűjtő megoldásokhoz használják, ahogy mi is tettük.
                     A fluentd és a logstash közötti különbségeket alább egy táblázatban gyűjtöttük ki. A legfontosabb különbség a teljesítmény. A fluentd lényegesebben kevesebb plugint használ az alap csomagban, mint a logstash. Inkább a teljesítmény növelésére lett kifejlesztve.

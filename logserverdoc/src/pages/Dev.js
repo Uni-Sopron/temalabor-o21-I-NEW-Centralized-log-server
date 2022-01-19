@@ -7,6 +7,7 @@ const Dev = () => {
             <h2>
                 <Badge bg="secondary">5.</Badge> Fejlesztői bemutatás
             </h2>
+            <hr></hr>
             <p className='mt-2'>
                 
             </p>

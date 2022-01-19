@@ -7,6 +7,7 @@ const Usermanual = () => {
         <h2>
             <Badge bg="secondary">4.</Badge> Felhasználói bemutatás
         </h2>
+        <hr></hr>
         <p className='mt-2'>
 
         </p>

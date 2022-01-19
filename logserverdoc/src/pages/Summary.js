@@ -7,6 +7,7 @@ const Summary = () => {
             <h2>
                 <Badge bg="secondary">7.</Badge> Összegzés
             </h2>
+            <hr></hr>
             <p className='mt-2'>
 
             </p>

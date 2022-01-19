@@ -7,6 +7,7 @@ const Problem = () => {
             <h2>
                 <Badge bg="secondary">2.</Badge> Probléma
             </h2>
+            <hr></hr>
             <p className='mt-2'>
                 A <b>cyan Security Group</b> azt szeretné, hogy a hálózat sokféle eszközének rendszernaplóit, valamint az egyedi és nem egyedi szoftveres megoldásokat
                 monitorozni (<b>akár valós időben, indexelve!</b>) tudjuk a magas rendelkezésre állás és gyors hibakezelések érdekében. Ehhez nem elég hosszasan böngészni a naplókat lokálisan.

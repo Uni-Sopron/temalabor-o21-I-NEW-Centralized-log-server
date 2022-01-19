@@ -7,6 +7,7 @@ const Introduction = () => {
             <h2>
                 <Badge bg="secondary">1.</Badge> Bevezető 
             </h2>
+            <hr></hr>
             <p className="mt-2">
                 Szinte mindegyik operációs rendszer, alkalmazás vagy hálózati eszköz generál naplófájlokat. Ezek a fájlok rögzítik az operációs rendszerben bekövetkezett eseményeket,
                 szoftverfuttatásokat, vagy felhasználók közötti üzeneteket. A naplófájlokból rengeteg információt megtudhatunk, ezért is fontosak. Ki / Mi? Mikor? Hol? készítette, mennyire súlyos, vagy esetleg

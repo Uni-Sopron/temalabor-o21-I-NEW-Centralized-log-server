@@ -9,6 +9,7 @@ const Timeline = () => {
             <h2>
                 <Badge bg="secondary">6.</Badge> Munkafolyamatok
             </h2>
+            <hr></hr>
             <VerticalTimeline>
             <VerticalTimelineElement
             className="vertical-timeline-element--work"
