@@ -3,6 +3,7 @@ import { Container, Badge, Table, ListGroup, ListGroupItem, Alert } from 'react-
 import elk from '../images/elk.svg'
 const Tech = () => {
     const fluentd_conf = "<match logtype.error>type...</match>"
+
     return (
         <Container className='mt-5'>
             <h2>
@@ -30,7 +31,7 @@ const Tech = () => {
                     </ListGroupItem>
                     <ListGroupItem>
                         <b>PuTTY</b>
-                        <p>Egy elterjedt SSH kliens, megszokásból használtuk ennél a feladatnál is ezt.
+                        <p>Egy elterjedt SSH kliens grafikus felülettel, megszokásból használtuk ennél a feladatnál is ezt.
                         Igaz, nem volt kötelező, használhattuk volna a Windows-os parancssorunkat is, de 3 SSH kapcsolatnál érdemes menedzselni ezeket.</p>
                     </ListGroupItem>
                     <ListGroupItem>
@@ -77,11 +78,45 @@ const Tech = () => {
                 <p>Az Elasticsearch különböző helyekről képes fogadni nyers adatokat: naplók, metrikák, webes alkalmazások...
                 Az adat "lenyelés" (data ingestion) olyan folyamat, mely által a nyers adat parszolva, normalizálva lesz mielőtt még indexelve lenne az adatbázisban.
                 Miután az adatok index minták (index pattern) alapján tárolásra kerülnek komplex, aggregált lekérdezéseket is tudunk használni.
+                Ehhez az adatbázishoz akár többféleképpen is hozzáférhetünk, ha fejlesztésről lenne szó (köszhetően az egyszerű REST API-nak):
+                <ul>
+                    <li>SQL</li>
+                    <li>Python</li>
+                    <li>Java</li>
+                    <li>JavaScript (Node.js)</li>
+                    <li>Go</li>
+                    <li>.NET (C#)</li>
+                    <li>PHP</li>
+                    <li>Perl</li>
+                    <li>Ruby</li>
+                </ul>
                 </p>
                 <Alert variant='info'>
                     <Alert.Heading as= "h6">Elastic indexek</Alert.Heading>
                     Az Elastic indexek olyan dokumentumok gyűjteménye, amelyek egymással kapcsolatban vannak. Az Elasticsearch JSON dokumentumokban tárol.
                 </Alert>
+                <h4>Logstash</h4>
+                <p> A Logstash szintén az ELK Stack magját képzi, ám használata nem kötelező. Az a funkciója, hogy preprocesszálja az adatokat, mielőtt még az Elasticsearch adatbázisba kerülnének.
+                Ez a köztes rész, mint egy pipeline teszi lehetővé a többféle forrásból szimultán áramló adatok transzformálva legyenek.
+                Igen gazdag pluginkészlettel rendelkezik, különféle szűrők írhatóak benne, elágazásokkal, inputokkal és outputokkal.</p>
+                Példa:
+                <div style={{background: "#0021", borderRadius: "3px", padding: "5px", boxShadow: "5px 10px 8px #888888"}}>
+                
+            
+                     
+                </div>
+                <h4>Kibana</h4>
+                <p>A Kibana pedig az adatok vizualizálásáért és menedzseléséért felel. Valós-idejű hisztogramok, vonaldiagrammok, pie chart-ok és térképek készíthetőek többek közt benne.
+                Fontos eszközök, amik említésre méltóak és elérhetőek a Kibana felületen: Grok Debugger (A Logstash szűrők írása miatt érdemes használni), Console (REST API használata), Alerts (behatolások detektálása) stb.
+                Lényegében ez a rendszer frontend-je.</p>
+                <h4>Beats (Filebeat)</h4>
+                Erőforrásbarát adatszállítók, figyelik és gyűjtik a logokat, majd továbbítják a kívánt célhoz. 
+                Képes arra, hogy hogy leállás után megjegyezze a helyet, hol tartott, majd folytatja az olvasást és küldést.
+                Beépített modulokat használ az adatok gyűjtésére és parszolására (csak ismertebb naplók), ez lényegesen leegyszerűsíti a konfigurálást.
+                Több Beats alternatíva létezik: Filebeat (legelterjedtebb), Metricbeat, Heartbeat, Auditbeat, Functionbeat és egyebek.
+                Ezt a részt lehetne nevezni a "kliensoldalnak".
+                Mi a Filebeat forkot használtuk a félévben, a többit csak kipróbáltuk.
+                <p></p>
                 <h3>
                     EFK Stack
                 </h3>
