@@ -183,16 +183,22 @@ const Timeline = () => {
             Ez a téma rengeteg lehetőséget tartogat a jövőben:
             <ul>
                 <li>
-                    Biztonsági technikák bevetése
+                    Biztonságossé tétel
                 </li>
                 <li>
-                    Hatékonyabb indexelés
+                    Filestream alapú feldolgozás
                 </li>
                 <li>
-                    Klaszterben használat (Kubernetes)
+                    Bonyolultabb szűrések
+                </li>
+                <li>
+                    Klaszterben használat (shard-ok kihasználása)
                 </li>
                 <li>
                     Mesterséges intelligencia bevonása
+                </li>
+                <li>
+                    Architektúra optimalizáció
                 </li>
                 <li>
                     ...

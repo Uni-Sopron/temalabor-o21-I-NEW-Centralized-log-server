@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Badge, Table, ListGroup, ListGroupItem, Alert } from 'react-bootstrap';
 import elk from '../images/elk.svg'
+
 const Tech = () => {
     const fluentd_conf = "<match logtype.error>type...</match>"
 
@@ -104,8 +105,8 @@ const Tech = () => {
                 <h6>Példa pipeline, Apache access logokra</h6>
                 <div style={{background: "#0021", borderRadius: "3px", padding: "5px", boxShadow: "5px 10px 8px #888888"}} className='mb-3'>
                 <pre>
-                    <code className='language'>
-                {`input {
+                    <code>
+                    {`input {
     beats {
         port => "5044"
     }
@@ -122,8 +123,10 @@ output {
         hosts => [ "localhost:9200" ]
     }
 }  `}
-                    </code>          
+                    </code>
                 </pre>
+              
+        
                 </div>
                 <p>Ennél a példánál az <code>input</code> plugin Beats adatokat fog fogadni az 5044-es porton,
                     apache-access logokra szűrünk. A <code>grok</code> egy mintára illeszti a sorokat, bizonyos mezőkhöz rendeli a sor részeit, majd ezeken további módosítások hajthatóak végre.

@@ -2,44 +2,53 @@ import React from 'react'
 import { Container, Badge, ListGroup, ListGroupItem } from 'react-bootstrap';
 import kep from "../images/mclog.png"
 const Problem = () => {
-    return (
-        <Container className='mt-5'>
-            <h2>
-                <Badge bg="secondary">2.</Badge> Probléma
-            </h2>
-            <hr></hr>
-            <p className='mt-2'>
-                A <b>cyan Security Group</b> azt szeretné, hogy a hálózat sokféle eszközének rendszernaplóit, valamint az egyedi és nem egyedi szoftveres megoldásokat
-                monitorozni (<b>akár valós időben, indexelve!</b>) tudjuk a magas rendelkezésre állás és gyors hibakezelések érdekében. Ehhez nem elég hosszasan böngészni a naplókat lokálisan.
-                Erre nincsen idő egy vállalati környezetben.
-                Sokszor a naplósorokat nem is lehet értelmezni (pl. többsoros, bonyolult), ezeket érdemes lenne úgy processzálni, hogy használhatóak legyenek.
-                Egyszerre nézegetni a fájlokat is igen megterhelő lenne, hiszen előfordulhat, hogy több számunkra érdekes forrás is van, mint 4-5 darab, így kényelmesebb lenne egy GUI használata.
-                Fontos szempont még, hogy az előforduló igazán kritikus hibákat könnyedén tudjuk detektálni, és kimutatások alapján megtenni a szükséges lépéseket.
-            </p>
-           <p>
-           Egy példa a syslog fájlból <i>"hagyományos"</i> módszerrel:</p> 
-           <div style={{background: "#0021", borderRadius: "3px", padding: "5px", boxShadow: "5px 10px 8px #888888"}}>
-           <code>cyanadm@UNI-Server02:~$ sudo tail -f /var/log/syslog<br></br>
-                30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Listening on GnuPG cryptographic agent and passphrase cache.<br></br>
-                30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Listening on debconf communication socket.<br></br>
-                30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Listening on REST API socket for snapd user session agent.<br></br>
-                30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Listening on D-Bus User Message Bus Socket.<br></br>
-                30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Reached target Sockets.<br></br>
-                30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Reached target Basic System.<br></br>
-                30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Reached target Main User Target.<br></br>
-                30 Jan 16 14:30:01 UNI-Server02 systemd[1]: Started User Manager for UID 1000.<br></br>
-                30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Startup finished in 107ms.<br></br>
-                30 Jan 16 14:30:01 UNI-Server02 systemd[1]: Started Session 178 of user cyanadm.</code><br></br>
-               
-           </div>
-           <p className='mt-4'>Esetleg böngészgethetjük az auth.log fájlt így:</p>
-           <img src={kep} width="100%" alt=''></img>
-           <p className='mt-3'> Vagy ha hibák érdekelnek minket:</p>
-           <div style={{background: "#0021", borderRadius: "3px", padding: "5px", boxShadow: "5px 10px 8px #888888"}}>
-           <code> 
+return (
+<Container className='mt-5'>
+    <h2>
+        <Badge bg="secondary">2.</Badge> Probléma
+    </h2>
+    <hr>
+    </hr>
+    <p className='mt-2'>
+        A <b>cyan Security Group</b> azt szeretné, hogy a hálózat sokféle eszközének rendszernaplóit, valamint az egyedi
+        és nem egyedi szoftveres megoldásokat
+        monitorozni (<b>akár valós időben, indexelve!</b>) tudjuk a magas rendelkezésre állás és gyors hibakezelések
+        érdekében. Ehhez nem elég hosszasan böngészni a naplókat lokálisan.
+        Erre nincsen idő egy vállalati környezetben.
+        Sokszor a naplósorokat nem is lehet értelmezni (pl. többsoros, bonyolult), ezeket érdemes lenne úgy
+        processzálni, hogy használhatóak legyenek.
+        Egyszerre nézegetni a fájlokat is igen megterhelő lenne, hiszen előfordulhat, hogy több számunkra érdekes forrás
+        is van, mint 4-5 darab, így kényelmesebb lenne egy GUI használata.
+        Fontos szempont még, hogy az előforduló igazán kritikus hibákat könnyedén tudjuk detektálni, és kimutatások
+        alapján megtenni a szükséges lépéseket.
+    </p>
+    <p>
+        Egy példa a syslog fájlból <i>"hagyományos"</i> módszerrel:</p>
+    <div style={{background: "#0021", borderRadius: "3px", padding: "5px", boxShadow: "5px 10px 8px #888888"}}>
+        <code>cyanadm@UNI-Server02:~$ sudo tail -f /var/log/syslog<br></br>
+            30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Listening on GnuPG cryptographic agent and passphrase
+            cache.<br></br>
+            30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Listening on debconf communication socket.<br></br>
+            30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Listening on REST API socket for snapd user session
+            agent.<br></br>
+            30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Listening on D-Bus User Message Bus Socket.<br></br>
+            30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Reached target Sockets.<br></br>
+            30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Reached target Basic System.<br></br>
+            30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Reached target Main User Target.<br></br>
+            30 Jan 16 14:30:01 UNI-Server02 systemd[1]: Started User Manager for UID 1000.<br></br>
+            30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Startup finished in 107ms.<br></br>
+            30 Jan 16 14:30:01 UNI-Server02 systemd[1]: Started Session 178 of user cyanadm.</code><br></br>
+
+    </div>
+    <p className='mt-4'>Esetleg böngészgethetjük az auth.log fájlt így:</p>
+    <img src={kep} width="100%" alt=''></img>
+    <p className='mt-3'> Vagy ha hibák érdekelnek minket:</p>
+    <div style={{background: "#0021", borderRadius: "3px", padding: "5px", boxShadow: "5px 10px 8px #888888"}}>
+        <code>
             cyanadm@UNI-Server02:~$ journalctl -p 3 <br></br>
             ...<br></br>
-            Dec 17 17:28:58 UNI-Server02 systemd[1]: Failed to start Filebeat sends log files to Logstash or directly to Elasticsearch..<br></br>
+            Dec 17 17:28:58 UNI-Server02 systemd[1]: Failed to start Filebeat sends log files to Logstash or directly to
+            Elasticsearch..<br></br>
             Dec 23 12:24:51 UNI-Server02 rsyslogd[3603454]: error: extra characters in config line ignored: '”{'<%'}PRI%{'>%'}TIMESTAMP% %HOSTNAME% %syslogtag%%msg%”' [v8.2001.0]
             <br></br> ... 
             </code>
