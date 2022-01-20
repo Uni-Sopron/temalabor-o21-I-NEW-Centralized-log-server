@@ -8,9 +8,12 @@ const Dev = () => {
                 <Badge bg="secondary">5.</Badge> Fejlesztői bemutatás
             </h2>
             <hr></hr>
-            <p className='mt-2'>
-                
-            </p>
+            <h3>Elastic Stack telepítése, tesztelése</h3>
+            <p>...</p>
+            <h3>EFK Stack</h3>
+            <p>...</p>
+            <h3>Graylog</h3>
+            <p>...</p>
         </Container>
     )
 }

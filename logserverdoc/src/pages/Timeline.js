@@ -174,6 +174,19 @@ const Timeline = () => {
             className="vertical-timeline-element--work"
             contentStyle={{ background: 'rgb(0, 0, 0)', color: '#fff' }}
             contentArrowStyle={{ borderRight: '7px solid  rgb(108, 117, 125)' }}
+            date="2022. január 18."
+            iconStyle={{ background: 'rgb(108, 117, 125)', color: '#fff' }}
+            icon={<FaRecordVinyl color="white"/>}
+        >
+            <h3 className="vertical-timeline-element-title">I-NEW konzultáció</h3>
+            <p>
+           Az eddigi munka áttekintése, bemutatás, jövőre vonatkozó kérdések tárgyalása.
+            </p>
+        </VerticalTimelineElement>
+        <VerticalTimelineElement
+            className="vertical-timeline-element--work"
+            contentStyle={{ background: 'rgb(0, 0, 0)', color: '#fff' }}
+            contentArrowStyle={{ borderRight: '7px solid  rgb(108, 117, 125)' }}
             date="Jövő "
             iconStyle={{ background: 'rgb(108, 117, 125)', color: '#fff' }}
             icon={<FaRecordVinyl color="white"/>}

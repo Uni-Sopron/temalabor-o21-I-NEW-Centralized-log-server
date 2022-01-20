@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Badge, Table, ListGroup, ListGroupItem, Alert } from 'react-bootstrap';
 import elk from '../images/elk.svg'
-
+import elkflow from '../images/elkflow.png'
 const Tech = () => {
     const fluentd_conf = "<match logtype.error>type...</match>"
 
@@ -41,7 +41,62 @@ const Tech = () => {
                         <p>A Total Commander terminálos megfelelője. Segítségével egyszerűbbé vált az elérési útak böngészése.</p>
                     </ListGroupItem>
                 </ListGroup>
-                
+                <h3>Mi miből áll?</h3>
+                <Alert variant='info'>
+                    <Alert.Heading as="h5">
+                        Info
+                    </Alert.Heading>
+                    Az adatbegyűjtésre használt komponensek közül több alternatíva is kompatibilis lehet az adott rendszerrel, ez mindhárom esetben igaz
+                    (<i>például az EFK Stack esetében az rsyslogot csak kísérleti nyúlként alkalmaztuk, egyébként a beépített tail plugint szokták használni</i>).
+                    
+                </Alert>
+                 <Table striped bordered hover style={{ marginTop:20}}>
+                    <thead>
+                        <tr>
+                        <th></th>
+                        <th>Elastic Stack</th>
+                        <th>EFK Stack</th>
+                        <th>Graylog</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><b>Adatgyűjtő rész</b></td>
+                            <td>Beats<br>
+                            </br><i>Alternatíva: Elastic Agents, számtalan megoldás</i>
+                            </td>
+                            <td>rsyslog<br></br>
+                            <i>Alternatíva: tail plugin, syslog plugin, Beats</i>
+                            </td>
+                            <td>Beats, TCP, UDP protokoll<br>
+                            </br>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><b>Processzálás, szűrés</b></td>
+                            <td>Logstash</td>
+                            <td>Fluentd</td>
+                            <td>Graylog kezeli, Logstash opcionális</td>
+                        </tr>
+
+                       
+                        <tr>
+                            <td><b>Adatbázis</b></td>
+                            <td colspan="2">Elasticsearch</td>
+                            <td>Elasticsearch, MongoDB a konfigurációs adatok tárolására</td>
+                        </tr>
+
+                        <tr>
+                            <td><b>Webes felület</b></td>
+                            <td colspan="2">Kibana</td>
+                            <td>Graylog sajátja</td>
+                        </tr>
+
+                    </tbody>
+                    </Table>
+                    
+            
                 <h3>
                     <a href='https://www.elastic.co/'>Elastic Stack (ELK) </a>
                 </h3>
@@ -50,7 +105,9 @@ const Tech = () => {
                     Az <b>ELK</b> egy betűsző, 3 nyílt-forráskódú projektet takar: <b>Elasticsearch</b>, <b>Logstash</b> és <b>Kibana. </b>
                     Mondhatni ez a piacvezető rendszer naplófájlok gyűjtésére és elemezésére.
                 </p>
+                <img src={elkflow} style={{float:'right'}} width="60%"></img>
                 <img src={elk} width="40%" className='mb-3'></img>
+                
                 <h4>Elasticsearch</h4>
                 <p>Az Elasticsearch egy ingyenes, nyílt analítikai motor mindenféle adattípusra,
                     akár legyen az strukturált vagy nem-strukturált. Az <b>Apache Lucene</b> alapján készült (Java alapú), és 2010-ben jelent meg.

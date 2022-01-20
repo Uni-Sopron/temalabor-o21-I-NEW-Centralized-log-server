@@ -14,7 +14,7 @@ function Navigation() {
               <Nav.Link as={Link} to='/problem'>Probléma</Nav.Link>
               <Nav.Link as={Link} to='/tech'>Technológia</Nav.Link>
               <Nav.Link as={Link} to='/usermanual'>Felhasználói bemutatás</Nav.Link>
-              <Nav.Link as={Link} to='/dev'>Fejlesztői bemutatás</Nav.Link>
+              <Nav.Link as={Link} to='/dev'>Installáció, konfigurációk bemutatása</Nav.Link>
               <Nav.Link as={Link} to='/timeline'>Munkafolyamatok</Nav.Link>
               <Nav.Link as={Link} to='/summary'>Összegzés</Nav.Link>
             </Nav>
