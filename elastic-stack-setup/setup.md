@@ -339,7 +339,7 @@ A logstash filterben az alábbi elágazásokat írhatjuk:
  output {
   if "syslog" in [tags] {
       elasticsearch {
-        hosts => [ˇlocalhost:9200"]
+        hosts => ["localhost:9200"]
         index => "syslog-%{+YYYY.MM.dd}"
      }
   }
