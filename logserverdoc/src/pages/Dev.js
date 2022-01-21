@@ -68,7 +68,7 @@ const Dev = () => {
                         `}</pre>
                         <p>
                             A source tagben tudjuk megjelölni a forrást. (Honnan érkezik az adat.) Ez lehet egy port, amin hallgatózunk, egy beat küldő alkalmazás (pl. <i>Filebeat</i>), vagy akár maga a fluentd is beolvashatja beépített <b>tail-in</b> pluginjának köszönhetően.
-                            A mi esetünkben, viszont elsődlegesen a legfontosabb a <b>rendszerlogok</b> feldolgozása volt. Ezeket sokféleképp bevihettük volna forrásként. A mi konfigurációnkba - egy beépített plugin - a <b>syslog-in</b>-t használtam, ami tulajdonképpen az előbb említett tail plugin egy módosított megfelelője az egyszerűség és rugalmasság kedvéért.
+                            A mi esetünkben, viszont elsődlegesen a legfontosabb a <b>rendszerlogok</b> feldolgozása volt. Ezeket sokféleképp bevihettük volna forrásként. A mi konfigurációnkba - egy beépített plugin - a <b>syslog-in</b>-t használtuk, ami tulajdonképpen az előbb említett tail plugin egy módosított megfelelője az egyszerűség és rugalmasság kedvéért.
                             Jól látható, hogy itt még szerepel egy <b>tag</b> rész. Ennek az értéke bármi lehet, a későbbiekben lesz nagy jelentősége.
                         </p>
                     </li>
@@ -134,6 +134,41 @@ const Dev = () => {
             </ul>
             <p>
                 Természetesen még megannyi plugin tartozik a fluentd-hez, de úgygondolom a fontosakat összeszedtük.
+            </p>
+            <h5>Az rsyslog konfigurálása</h5>
+            <p>Az <b>rsyslog</b> nyílt forráskódú szoftver-segédprogram, amit az UNIX számítógépes rendszerek használnak naplóüzenetek továbbításához az IP hálózaton.</p>
+            <p>Az általunk készített EFK stack-ben is az rsyslogot használtuk, hogy továbbítsa a logokat a fluentd-nek.</p>
+            <p>Az rsyslog.conf fájl első sorába kell beírnunk a következő sort:</p>
+            <code>*.* @127.0.0.1:5140</code>
+            <p>Innentől a rendszer minden naplófájlt az <b>5140</b>-es portra fog küldeni. Fentebb a fluentd-nél ezt a portot adtuk meg forrásként, így már tesztelhetjük is a rendszert a Kibana-ban.</p>
+            <p>
+                Az rsyslog config fájlban még lehetőségünk van egyedi log template-t készíteni. Az alapértelmezett formátum:
+                <p>
+                    <code>$ActionFileDefaultTemplate TraditionalFileFormat</code>
+                </p>
+                <p>
+                    Ezt kitudjuk bővíteni plusz elemekkel, vagy esetleg JSON objektummá formálni. Például:
+                    <pre>{`
+            $ActionFileDefaultTemplate outfmt
+
+            template(name="outfmt" type="list" option.jsonf="on") {
+                property(outname="@timestamp" name="timereported" dateFormat="rfc3339" format="jsonf")
+                property(outname="host" name="hostname" format="jsonf")
+                property(outname="severity" name="syslogseverity" caseConversion="upper" format="jsonf" datatype="number")
+                property(outname="facility" name="syslogfacility" format="jsonf" datatype="number")
+                property(outname="syslog-tag" name="syslogtag" format="jsonf")
+                property(outname="source" name="app-name" format="jsonf" onEmpty="null")
+                property(outname="message" name="msg" format="jsonf")
+
+            }  
+                    `}</pre>
+                    <br></br>
+                    <p>Kimenet: </p>
+                    <pre>{`{"@timestamp":"2018-03-01T01:00:00+00:00", "host":"172.20.245.8", "severity":7, "facility":20, "syslog-tag":"tag", "source":"tag", "message":" msgnum:00000000:"}`}</pre>
+                    <p>
+                        Ilyenkor értelemszerűen a fluentd-ben a <b>filter</b> tagben, már ehhez a formátumú bemenethez kell igazodnunk. Ezek a template-ek jól jöhetnek a rendszer későbbi <b>továbbfejlesztéséhez</b>.
+                    </p>
+                </p>
             </p>
             <h3>Graylog</h3>
             <p>...</p>
