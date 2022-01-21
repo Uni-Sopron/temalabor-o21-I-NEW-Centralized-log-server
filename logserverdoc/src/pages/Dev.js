@@ -267,6 +267,67 @@ $ActionFileDefaultTemplate TraditionalFormatWithPRI`}
                     A syslog_pri {`{ }`} filter plugin segít nekünk olvasható formában kinyerni a severity és facility levelt. Most már bekerülnek ezek a mezők is az Elasticsearch-be.
                 </Alert>
                 <img src={syslog} width="50%"></img>
+                <h6>Webes access, error logok feldolgozása</h6>
+                <p>Azt már látjuk, hogy ha specifikus adatokra van szükségünk, akkor szükséges a Logstash használata, hiszen alapértelmezésben a nyers logok kerülnek továbbításra. Szinte mindenhol igény mutatkozik Apache, Nginx logsorok feldolgozására. Fontos tehát ismernünk, hogy hogyan néz ki egy ilyen sor. Itt jön képbe a Grok Debugger eszköz, amely egyszerűbbé teszi a minták írását. El kell döntenünk, milyen mezőkre van szükségünk, majd a grok pattern-t mintalogokra illesztjük,
+                 és megfigyeljük milyen adatot tudtunk exportálni. Általában access logokra elegendő a {`%{COMBINEDAPACHELOG}`} minta.</p>
+                <p>A logstash filterben az alábbi elágazásokat írhatjuk:</p>
+                <pre>
+                    {`if [event][module] == "nginx" {
+   if [fileset][name] == "access" {
+     grok {
+       match => { "message" => "%{COMBINEDAPACHELOG}"  }
+       remove_field => [ "message" ]
+     }
+}
+ if [event][module] == "apache" {
+   if [fileset][name] == "access" {
+     grok {
+       match => { "message" => "%{COMBINEDAPACHELOG}"  }
+       remove_field => [ "message" ]
+     }
+   }`}
+                </pre>
+                <p>Azonban az error logoknál, a lényegre: a log levelre vagyunk kíváncsiak, ehhez a minta például:</p>
+                <pre>
+                    {`else if [fileset][name] == "error" {
+     grok {
+       match => { "message" => ["%{DATA:time} \[%{DATA:log_level}\] %{NUMBER:pid}#%{NUMBER:tid}: (\*%{NUMBER:connection_id} )?%{GREEDYDATA:messageTmp}"] }
+       remove_field => "message"
+     }
+ mutate {
+       rename => {"messageTmp" => "message"}
+     }
+ }`}
+                </pre>
+                <h6>Hatékonyabb indexelés</h6>
+                <p>Különválaszthatjuk a webes és a rendszerre vonatkozó logokat, olyan módon például, hogy a system logok kapnak egy plusz taget, megjelölve, hogy ők a rendszerlogok, és ugyanígy a webeseknél. Majd az output plugin-nál
+                     ezeket a tag-ek alapján szét lehet választani indexekbe. Értelemszerűen külön-külön index pattern-t kell létrehozni.</p>
+                     <pre>
+                         {`...
+mutate {
+    add_tag => ["syslog"]
+}
+...`}
+                     </pre>
+                     <pre>
+                         {`output {
+ if "syslog" in [tags] {
+     elasticsearch {
+       hosts => ["localhost:9200"]
+       index => "syslog-%{+YYYY.MM.dd}"
+    }
+ }`}
+                     </pre>
+                     <h6>Eldobás</h6>
+                     <p>Tulajdonképpen ha az informális logokra nincsen szükségünk azokat eldobhatjuk így:</p>
+                     <pre>
+                         {`...
+if [syslog_severity] == "informational" {
+       drop { }
+}
+...`}
+                     </pre>
+                     <p>Így csak az igazán sürgős adatokat fogjuk látni.</p>
             <h3>EFK Stack</h3>
             <h5>FluentD telepítése, konfigurálása</h5>
             <p>Az Elasticsearch és a Kibana feltelepítése majd konfigurálása után rátérhetünk a <b>fluentd</b>-re.
