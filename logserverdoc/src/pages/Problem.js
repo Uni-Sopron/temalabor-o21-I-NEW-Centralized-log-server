@@ -24,7 +24,7 @@ return (
     </p>
     <p>
         Egy példa a syslog fájlból <i>"hagyományos"</i> módszerrel:</p>
-    <div style={{background: "#0021", borderRadius: "3px", padding: "5px", boxShadow: "5px 10px 8px #888888"}}>
+    <div>
         <code>cyanadm@UNI-Server02:~$ sudo tail -f /var/log/syslog<br></br>
             30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Listening on GnuPG cryptographic agent and passphrase
             cache.<br></br>
@@ -43,7 +43,7 @@ return (
     <p className='mt-4'>Esetleg böngészgethetjük az auth.log fájlt így:</p>
     <img src={kep} width="100%" alt=''></img>
     <p className='mt-3'> Vagy ha hibák érdekelnek minket:</p>
-    <div style={{background: "#0021", borderRadius: "3px", padding: "5px", boxShadow: "5px 10px 8px #888888"}}>
+    <div id="codeblock">
         <code>
             cyanadm@UNI-Server02:~$ journalctl -p 3 <br></br>
             ...<br></br>

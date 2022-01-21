@@ -111,7 +111,7 @@ const Tech = () => {
                 <h4>Elasticsearch</h4>
                 <p>Az Elasticsearch egy ingyenes, nyílt analítikai motor mindenféle adattípusra,
                     akár legyen az strukturált vagy nem-strukturált. Az <b>Apache Lucene</b> alapján készült (Java alapú), és 2010-ben jelent meg.
-                    Ismert az egyszerű REST API-jairól, skálázhatóságáról és gyorsaságáról, ez a komponens az Elastic Stack szíve és lelke, amely Stack
+                    Ismert az egyszerű REST API-járól, skálázhatóságáról és gyorsaságáról, ez a komponens az Elastic Stack szíve és lelke, amely Stack
                     egy olyan eszközgyűjtemény, melyben szerepet kap az adatok beérkeztetése, tárolása, analízálása és vizualizálása.
                     Még gyakran hivatkoznak rá ELK Stack-ként, azonban már a <b>Beats</b> projektet is hozzácsatolták az eddigiekhez, a név Elastic lett és már erőforrásbarát "adatszállítókat" kaptunk.
                 </p>
@@ -151,6 +151,17 @@ const Tech = () => {
                     <li>Ruby</li>
                 </ul>
                 </p>
+                <h6>Miért használjuk?</h6>
+                <p><b>Gyorsaság</b>: Közel real-time platform, a dokumentumok indexeléstől számítva igen gyorsan vállik kereshetővé (1 másodperc tipikusan).
+                    Jól használható időérzékény scenarioknál, mint infrastruktúra monitorozás vagy biztonsági analízis.
+                </p>
+                <p><b>Az Elasticsearch elosztott</b>: A dokumentumok elosztott tárolókban (shards) laknak. A shard-ok redundáns tárolást tesznek lehetővé,
+                ami jól jön hardveres hibánál. Az Elasticsearch akár 100 (akár 1000) szerverre skálázható, és akár képessé téve petabyte-nyi adatok kezelését.
+                </p>
+                <p><b>Sok feature</b>: Index lifecycle management például. A régebbi indexek archiválhatóak, naponta készíthető új index.
+                </p>
+                <p><b>A Data ingest és reporting könnyű </b>: Grafikus eszközök sokasága jellemzi a rendszert.
+                </p>
                 <Alert variant='info'>
                     <Alert.Heading as= "h6">Elastic indexek</Alert.Heading>
                     Az Elastic indexek olyan dokumentumok gyűjteménye, amelyek egymással kapcsolatban vannak. Az Elasticsearch JSON dokumentumokban tárol.
@@ -160,7 +171,7 @@ const Tech = () => {
                 Ez a köztes rész, mint egy pipeline teszi lehetővé a többféle forrásból szimultán áramló adatok transzformálva legyenek.
                 Igen gazdag pluginkészlettel rendelkezik, különféle szűrők írhatóak benne, elágazásokkal, inputokkal és outputokkal.</p>
                 <h6>Példa pipeline, Apache access logokra</h6>
-                <div style={{background: "#0021", borderRadius: "3px", padding: "5px", boxShadow: "5px 10px 8px #888888"}} className='mb-3'>
+                <div className='mb-3'>
                 <pre>
                     <code>
                     {`input {

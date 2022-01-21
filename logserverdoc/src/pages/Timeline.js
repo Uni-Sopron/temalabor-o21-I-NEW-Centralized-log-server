@@ -195,14 +195,18 @@ const Timeline = () => {
             <p>
             Ez a téma rengeteg lehetőséget tartogat a jövőben:
             <ul>
-                <li>
-                    Biztonságossé tétel
-                </li>
+              
                 <li>
                     Filestream alapú feldolgozás
                 </li>
                 <li>
                     Bonyolultabb szűrések
+                </li>
+                <li>
+                    Automatizált alerting rendszer
+                </li>
+                <li>
+                    Tesztek
                 </li>
                 <li>
                     Klaszterben használat (shard-ok kihasználása)
