@@ -291,3 +291,67 @@ Ezek után a `logstash` filter így alakul:
   }
 ```
  A `syslog_pri { }` filter plugin segít nekünk olvasható formában kinyerni a severity és facility levelt. Most már bekerülnek ezek a mezők is az Elasticsearch-be.
+ 
+#### Webes access, error logok feldolgozása
+Azt már látjuk, hogy ha specifikus adatokra van szükségünk, akkor szükséges a Logstash használata, hiszen alapértelmezésben a nyers logok kerülnek továbbításra.
+Szinte mindenhol igény mutatkozik Apache, Nginx logsorok feldolgozására. Fontos tehát ismernünk, hogy hogyan néz ki egy ilyen sor.
+Itt jön képbe a Grok Debugger eszköz, amely egyszerűbbé teszi a minták írását. El kell döntenünk, milyen mezőkre van szükségünk, majd a grok pattern-t 
+mintalogokra illesztjük, és megfigyeljük milyen adatot tudtunk exportálni. Általában access logokra elegendő a %{COMBINEDAPACHELOG} minta.
+ 
+A logstash filterben az alábbi elágazásokat írhatjuk:
+ ```properties
+  if [event][module] == "nginx" {
+    if [fileset][name] == "access" {
+      grok {
+        match => { "message" => "%{COMBINEDAPACHELOG}"  }
+        remove_field => [ "message" ]
+      }
+  if [event][module] == "apache" {
+    if [fileset][name] == "access" {
+      grok {
+        match => { "message" => "%{COMBINEDAPACHELOG}"  }
+        remove_field => [ "message" ]
+      }
+    }
+ ```
+ Azonban az error logoknál, a lényegre: a log levelre vagyunk kíváncsiak, ehhez a minta például:
+ ```properties
+  else if [fileset][name] == "error" {
+      grok {
+        match => { "message" => ["%{DATA:time} \[%{DATA:log_level}\] %{NUMBER:pid}#%{NUMBER:tid}: (\*%{NUMBER:connection_id} )?%{GREEDYDATA:messageTmp}"] }
+        remove_field => "message"
+      }
+  mutate {
+        rename => {"messageTmp" => "message"}
+      }
+  }
+```
+ #### Hatékonyabb indexelés
+ Különválaszthatjuk a webes és a rendszerre vonatkozó logokat, olyan módon például, hogy a system logok kapnak egy plusz taget, megjelölve, hogy ők a rendszerlogok, és ugyanígy a webeseknél. Majd az output plugin-nál ezeket a tag-ek alapján szét lehet választani indexekbe. Értelemszerűen külön-külön index pattern-t kell létrehozni.
+ ```properties
+ ...
+ mutate {
+     add_tag => ["syslog"]
+ }
+ ...
+ ```
+ ```properties
+ output {
+  if "syslog" in [tags] {
+      elasticsearch {
+        hosts => [ˇlocalhost:9200"]
+        index => "syslog-%{+YYYY.MM.dd}"
+     }
+  }
+ ```
+ 
+ #### Eldobás
+Tulajdonképpen ha az informális logokra nincsen szükségünk azokat eldobhatjuk így:
+ ```properties
+ ...
+ if [syslog_severity] == "informational" {
+        drop { }
+ }
+ ...
+ ```
+ Így csak az igazán sürgős adatokat fogjuk látni.
