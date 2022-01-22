@@ -21,7 +21,7 @@ const Introduction = () => {
            
             <p className="mt-2">
                 A <a className='link-style' target="_blank" rel='noopener noreferrer' href="https://www.linkedin.com/company/cyansecurity/?originalSubdomain=hu"> cyan Security Group</a> cégcsoport open-source biztonsági megoldásokat kínál. Rendszerei különböző naplófájlokat generálnak, viszont jelenleg nincs központosított naplószerverük, illetve voltak próbálkozások, de nem volt egyértelmű, hogy melyik technológiai megoldás lenne a legoptimálisabb.
-                A cél egy olyan környezet létrehozása, amely felel a naplófájlok közös gyűjtéséért, hogy azokat a jövőben gördülékenyen lehessen elemezni, mindezt <b>Linux (Ubuntu)</b> alapokon.
+                A cél egy olyan környezet létrehozása, amely felel a naplófájlok közös gyűjtéséért, hogy azokat a jövőben gördülékenyen lehessen elemezni, mindezt <a href='https://ubuntu.com/' className='link-style' target="_blank">Linux (Ubuntu)</a>  alapokon.
             </p>
             <p className="mt-2">
                 A témával hárman foglalkoztunk (Rácz Máté, Mandl Ábel, Horváth Bálint) és mindhárman különböző modern és ingyenes technológiával dolgoztunk,

@@ -9,6 +9,10 @@ const Dev = () => {
             </h2>
             <hr></hr>
             <h3>Elastic Stack telepítése, tesztelése</h3>
+            <Alert><Alert.Heading as='h5'>Megjegyzés</Alert.Heading>Az alapkomponensek telepítése nagyrészt
+             a <a href='https://www.elastic.co/guide/en/elastic-stack-get-started/current/get-started-elastic-stack.html' className='link-style' target="_blank">dokumentációk</a> követésével valósult meg.
+             
+            </Alert>
             <h5>Előkészületek, függőségek telepítése</h5>
             Amire szükségünk van:
             <ul>

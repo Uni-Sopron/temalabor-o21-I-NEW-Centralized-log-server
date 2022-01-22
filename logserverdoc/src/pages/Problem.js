@@ -23,7 +23,7 @@ return (
         alapján megtenni a szükséges lépéseket.
     </p>
     <p>
-        Egy példa a syslog fájlból <i>"hagyományos"</i> módszerrel:</p>
+        Egy példa a <code>syslog</code> fájlból <i>"hagyományos"</i> módszerrel:</p>
     <div>
         <code>cyanadm@UNI-Server02:~$ sudo tail -f /var/log/syslog<br></br>
             30 Jan 16 14:30:01 UNI-Server02 systemd[61275]: Listening on GnuPG cryptographic agent and passphrase
