@@ -3,7 +3,7 @@ import { Container, Badge, Table, ListGroup, ListGroupItem, Alert } from 'react-
 import elk from '../images/elk.svg'
 import elkflow from '../images/elkflow.png'
 import graylog from '../images/graylog_tools.png'
-
+import filebeat from '../images/filebeat.png'
 const Tech = () => {
     const fluentd_conf = "<match logtype.error>type...</match>"
 
@@ -207,13 +207,14 @@ output {
                 Fontos eszközök, amik említésre méltóak és elérhetőek a Kibana felületen: Grok Debugger (A Logstash szűrők írása miatt érdemes használni), Console (REST API használata), Alerts (behatolások detektálása) stb.
                 Lényegében ez a rendszer frontend-je.</p>
                 <h4>Beats (Filebeat)</h4>
-                Erőforrásbarát adatszállítók, figyelik és gyűjtik a logokat, majd továbbítják a kívánt célhoz. 
+               
+                <p> Erőforrásbarát adatszállítók, figyelik és gyűjtik a logokat, majd továbbítják a kívánt célhoz. 
                 Képes arra, hogy hogy leállás után megjegyezze a helyet, hol tartott, majd folytatja az olvasást és küldést.
                 Beépített modulokat használ az adatok gyűjtésére és parszolására (csak ismertebb naplók), ez lényegesen leegyszerűsíti a konfigurálást.
                 Több Beats alternatíva létezik: Filebeat (legelterjedtebb), Metricbeat, Heartbeat, Auditbeat, Functionbeat és egyebek.
                 Ezt a részt lehetne nevezni a "kliensoldalnak".
-                Mi a Filebeat forkot használtuk a félévben, a többit csak kipróbáltuk.
-                <p></p>
+                Mi a Filebeat forkot használtuk a félévben, a többit csak kipróbáltuk. Beats működése:</p>
+                <img src={filebeat} width="70%"></img>
                 <h3>
                     EFK Stack
                 </h3>

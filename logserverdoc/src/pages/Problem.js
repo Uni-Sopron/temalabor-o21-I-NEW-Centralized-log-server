@@ -17,6 +17,8 @@ return (
         Erre nincsen idő egy vállalati környezetben.
         Sokszor a naplósorokat nem is lehet értelmezni (pl. többsoros, bonyolult), ezeket érdemes lenne úgy
         processzálni, hogy használhatóak legyenek.
+        Sajnos a naplók formátuma sem ugyanolyan, például egy <code>log4j</code> és egy <code>postgreSQL</code> soraiban a mezők nem ugyanúgy helyezkednek el, így
+        ezeket a változatosságokat sem tudjuk egyként kezelni.
         Egyszerre nézegetni a fájlokat is igen megterhelő lenne, hiszen előfordulhat, hogy több számunkra érdekes forrás
         is van, mint 4-5 darab, így kényelmesebb lenne egy GUI használata.
         Fontos szempont még, hogy az előforduló igazán kritikus hibákat könnyedén tudjuk detektálni, és kimutatások
@@ -57,9 +59,11 @@ return (
           
             <p className='mt-4'>
                 Érezhetjük tehát, hogy élesben nem túl hatékony parancsokat használni, keresgélni az elérési útvonalakat.
+                Azok az idők pedig elmúltak, hogy relációs adatbázisokon tároljuk a logokat.
                 Ezek alapvetően rendszermérnöki problémák, melyekre léteznek nyílt forráskódú megoldások, így nem kell nekünk megírnunk a sajátunkat, hanem
                 dolgozhatunk a jól bevált költséghatékony technológiákkal. 
             </p>
+            Ismert log kollektorok: <b>Graylog</b>, <b>Logstash</b>, <b>Fluentd</b>, <b>Flume</b>, <b>Octopussy</b>, <b>Rsyslog</b>, <b>Syslog-ng</b>
             <p className='mt-2'>
                 A munka megkezdése előtt le kellett fektetni a követelményeket, melyek egyeznek a cég elvárásaival,
                 a tapasztalatunkkal és a tárgy teljesítéséhez szükséges feltételekkel. Ezek a következők:

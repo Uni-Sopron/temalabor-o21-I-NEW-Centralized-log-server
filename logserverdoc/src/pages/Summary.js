@@ -32,7 +32,7 @@ const Summary = () => {
                         <tr>
                             <td><b>Konfigurálhatóság</b></td>
                             <td>Előny: Jól dokumentált. <br></br> Hátrány: Sok finomhangolás szükséges, ha nem elégszünk meg az alaptermékekkel. A Logstash használata nehézkes lehet.</td>
-                            <td>A Fluentd-vel egyszerűbb az eseménykezelés, szűrők írása, mint a Logstash által.</td>
+                            <td>A Fluentd-vel flexibilis az eseménykezelés, szűrők írása, mint a Logstash által.</td>
                             <td>Előny: Itt viszonylag kevés konfigurációval egy egészen használható platformot kapunk.<br></br> Hátrány: Ha szükségünk van a Logstash-re, itt is érvényes az, mint az Elastic-nál.</td>
                         </tr>
 
