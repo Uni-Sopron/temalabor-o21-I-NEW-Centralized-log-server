@@ -514,6 +514,13 @@ sudo apt-get install -y mongodb-org</code>
  sudo dpkg -i graylog-4.2-repository_latest.deb<br></br>
 sudo apt-get update && sudo apt-get install graylog-server graylog-enterprise-plugins graylog-integrations-plugins graylog-enterprise-integrations-plugins</code>
 
+<h5 className='mt-3'>Graylog Sidecar telepítése</h5>
+
+<code>$ wget https://packages.graylog2.org/repo/packages/graylog-sidecar-repository_1-2_all.deb<br></br>
+$ sudo dpkg -i graylog-sidecar-repository_1-2_all.deb<br></br>
+$ sudo apt-get update && sudo apt-get install graylog-sidecar </code>
+
+            
 
 
 <h3 className='mt-3'>Konfiguráció </h3>

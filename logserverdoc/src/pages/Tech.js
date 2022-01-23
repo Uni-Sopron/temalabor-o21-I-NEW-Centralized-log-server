@@ -300,7 +300,57 @@ output {
                      <p>  
                         A Graylog egy opensoucre platform, amely leegyszerűsítí a strukturált és a strukturálatlan adatrekordok kezelését.
 
-                        Négy komponensből áll:</p>
+
+
+                        Egy központosított naplókezelési megoldás, amely nyitott szabványok szerint készült a naplófájlok terabájtjainak rögzítésére, tárolására és valós idejű elemzésére, lehetővé téve a real-time  keresést. A Graylog lehetővé teszi a méretezhető naplókezelési megoldások kiválasztását, hogy többet tudjon kezelni biztonsági és teljesítményadataival. Az adott vállalat méretétől, technológiáitól vagy konfigurációitól függetlenül a Graylog megfelelő lehetőséget kínál.
+
+         <h5>Autentikáció</h5>
+
+ <p>A Graylog hitelesítési hozzáférése az LDAP. Az LDAP segítségével szinkronizálhatjuk az egyes csoportokat és a csoportokon belüli felhasználókat. Számos felhasználónevet létre lehet hozni a hálózaton, és szinkronizálni a Graylogon belüli csapatokkal. Így az Active Directory-csoportok szinkronizálódnak a Graylogon belüli szinkronizált csoportokkal, és továbbítják a felhasználókat. </p>
+
+<h5>Graylog Sidecars</h5>
+
+A Graylog Sidecar egy konfigurációkezelő rendszer különböző log gyűjtőkhöz, más néven Backendekhez. A Graylog főcsomópont központilag elhelyezett hubként működik, amely tartalmazza a naplógyűjtők konfigurációit. A naplógyűjtő konfigurációk központilag kezelhetők a Graylog webes felületén keresztül. <br></br>
+
+<h5>Log Inputs</h5>
+
+A Graylog beállítások adatok nélkül semmit sem érnek. A Graylog inputok felelősek a naplóüzenetek elfogadásáért. Néhány alapértelmezett üzenettípus alapértelmezés szerint elérhető a Graylogban. 
+
+
+<h6><br></br>Log források: </h6>
+<ul>
+<li> <b> Ingest syslog  </b> </li>
+<li>Ingest journald </li>
+<li>Ingest Windows eventlog</li>
+<li>Ingest CEF</li>
+<li>Ingest Raw/Plaintext</li>
+<li>Ingest GELF</li>
+<li>Ingest from files</li>
+<li>Ingest JSON path from HTTP API</li>
+<li>Ingest Application Data</li>
+</ul> 
+
+
+EGYEDI BEMENETEK:<br></br>
+<ul> 
+<li> <b> Beats </b></li><b> </b>
+<li>AWS Kinesis/CloudWatch bemenet</li>
+<li>IPFIX bemenet</li>
+<li> Okta napló eseménybevitel </li>
+<li>Palo Alto Networks bemenet</li>
+
+</ul>
+A Beats nyílt forráskódú adatszállítók, amelyeket "ügynökként" telepít a szervereire, hogy  adatokat küldjön az Elasticsearch -nek . Az Elastic ütemeket biztosít a rögzítéshez:
+
+
+
+<b>Filebeat </b>
+
+
+A Filebeat egy szállító a naplóadatok továbbításához és központosításához. A kiszolgálókra "ügynökként" telepített Filebeat figyeli a megadott naplófájlokat vagy helyeket, összegyűjti a naplóeseményeket, és továbbítja azokat az Elasticsearch vagy a Logstash felé indexelés céljából.
+
+
+                        Négy komponensből áll: </p> 
                         </p>
                        <ul>
                         <li>Elasticsearch 7.15.2</li>
@@ -310,6 +360,14 @@ output {
                        
 
                         <img src={graylog} width="50%" height="50%" className='mb-3'></img>
+
+
+<p><h5>MongoDB</h5>
+A Graylog a MongoDB-t használja a konfigurációs adatok tárolására, nem pedig a naplóadatokat.
+ A rendszer csak metaadatokat tárol, például felhasználói információkat vagy adatfolyam-konfigurációkat.
+  A naplóüzenetek egyike sem kerül tárolásra a MongoDB-ben. Ez az oka annak, hogy a MongoDB-nek nincs nagy rendszerhatása,
+   és nem kell túl sokat aggódni a méretezés miatt.
+</p>
 
 
 
