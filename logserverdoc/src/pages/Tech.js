@@ -2,6 +2,8 @@ import React from 'react';
 import { Container, Badge, Table, ListGroup, ListGroupItem, Alert } from 'react-bootstrap';
 import elk from '../images/elk.svg'
 import elkflow from '../images/elkflow.png'
+import graylog from '../images/graylog_tools.png'
+
 const Tech = () => {
     const fluentd_conf = "<match logtype.error>type...</match>"
 
@@ -303,6 +305,12 @@ output {
                         <p>MongoDB 4.0.27</p>
                         <p>Filebeat 7.15.2</p>
                         <p>Graylog 4.2.1</p> 
+
+                        <img src={graylog} width="50%" height="50%" className='mb-3'></img>
+
+
+
+
 
 
         </Container>

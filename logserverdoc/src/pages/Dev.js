@@ -486,7 +486,81 @@ if [syslog_severity] == "informational" {
                 </p>
             </p>
             <h3>Graylog</h3>
-            <p>...</p>
+            <p> Első lépésben telepítjük a java környezetet, majd ellenőrizzük a verizót: 
+apt-get install openjdk-8-jre-headless
+java -version
+
+<h5>Elasticsearch telepítése: ld. feljebb </h5>
+<h5>Filebeat telepítése: ld. feljebb </h5>
+
+<h5>MongoDB telepítése  </h5>
+<p>A MongoDB a Graylog konfigurációjának a tárolásáért felel.....</p>
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
+echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
+sudo apt-get install -y mongodb-org
+
+
+
+<h5>Graylog telepítése</h5>
+
+
+
+wget https://packages.graylog2.org/repo/packages/graylog-4.2-repository_latest.deb
+ sudo dpkg -i graylog-4.2-repository_latest.deb
+sudo apt-get update && sudo apt-get install graylog-server graylog-enterprise-plugins graylog-integrations-plugins graylog-enterprise-integrations-plugins
+
+
+
+<h3>Konfiguráció </h3>
+
+<h5>Elasticsearch</h5>
+sudo nano /etc/elasticsearch/elasticsearch.yml  cluster.name: graylog
+
+sudo systemctl start elasticsearch.service
+sudo systemctl enable elasticsearch.service
+Ellenőrizzük, hogy fut -e!
+sudo systemctl status elasticsearch.service
+ 
+
+	
+<h5>MongoDB</h5>
+
+sudo systemctl start mongod.service
+sudo systemctl enable mongod.service
+
+Ellenőrizzük, hogy fut -e!
+sudo systemctl status mongod
+
+
+<h5>Filebeat </h5>
+/etc/filebeat/filebeat.yml  
+ output.elasticsearch:
+  hosts: ["172.24.1.12:9200"]
+
+         
+
+     
+  <h5>Graylog</h5>
+
+Szerkesszük a konfigot és írjuk bele a titkosító jelszót és az admin jelszót. Generáljunk titkosító kódot. Jó tanács: Maradjon ez a jelszó 96 hosszú, mert rövidebbel nem  működik.
+<h6>pwgen -N 1 -s 96 </h6>
+NAgDMLbLBMElZioAF8sDNYn9eMe8FAV6m57kosghucJw2A3zTdPUCiNnOEK35gWkiA7go61ZdVJuogqrhez48yQr4Aj1tiXt
+Admin user jelszavához is generáljunk jelszót.
+echo -n jelszo | shasum -a 256 
+248b646537648c1fbdeb42b56771dbdb42129e8bab527ff551a1f49ce499464f
+Adjunk a konfighoz  root email cimet és időzónát is
+root_email = horvathba@inf.uni-sopron.hu
+root_timezone = UTC
+Be kell állítani a konfigban, hogy a Graylog melyik IP címen keresztül engedje a Webes felületet működni. Adjuk meg a szerverünk címét!
+http_bind_address = 172.24.1.12:9000
+Engedélyezzük, majd indítsuk el a graylogot
+systemctl enable graylog-server
+systemctl start graylog-server
+ellenőrizzük, hogy fut e:
+systemctl status graylog-server
+ 
+
+</p>
         </Container>
     )
 }
