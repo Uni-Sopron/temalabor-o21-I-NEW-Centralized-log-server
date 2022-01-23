@@ -301,10 +301,12 @@ output {
 
                         Négy komponensből áll:</p>
                         </p>
-                        <p>Elasticsearch 7.15.2</p>
-                        <p>MongoDB 4.0.27</p>
-                        <p>Filebeat 7.15.2</p>
-                        <p>Graylog 4.2.1</p> 
+                       <ul>
+                        <li>Elasticsearch 7.15.2</li>
+                        <li>MongoDB 4.0.27</li>
+                        <li>Filebeat 7.15.2</li>
+                       <li>Graylog 4.2.1</li> </ul> 
+                       
 
                         <img src={graylog} width="50%" height="50%" className='mb-3'></img>
 

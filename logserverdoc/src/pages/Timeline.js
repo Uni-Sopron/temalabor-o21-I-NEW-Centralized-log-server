@@ -218,8 +218,9 @@ const Timeline = () => {
                     Architektúra optimalizáció
                 </li>
                 <li>
-                    ...
+                    Cross-query írása
                 </li>
+                
             </ul>
             </p>
         </VerticalTimelineElement>

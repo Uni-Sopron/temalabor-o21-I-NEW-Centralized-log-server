@@ -131,6 +131,11 @@ output {
             <p>A konfiguráció elmentése után engedélyezzük a filebeat beépített modulját: <code>system</code>.
             Ez az ágens fogja vizsgálni a helyi syslog fájlt.</p>
             <code>sudo filebeat modules enable system</code>
+            <Alert variant='info'><Alert.Heading as='h6'>Ez mit csinál?</Alert.Heading>
+            Az előre megírt modulok az <code>/etc/filebeat/modules.d</code> helyen találhatóak. Alapértelmezetten egy .disabled tag jelöli, hogy 
+            nincsenek alkalmazva.
+            A filebeat modules enable parancs ezt a tag-et veszi le a kívánt modulokról, és a filebeat.yml ezekből olvassa be az utasításokat.
+            </Alert>
             <p className='mt-3'><b>Index template betöltése</b>: A logokat különböző indexek szerint rendezi a rendszer.
             A parancs által kapcsolódik a rendszerünk a Kibana felülethez, és az index előállítás is végbemegy.</p>
             <code>sudo filebeat setup -e \<br></br>
@@ -486,81 +491,85 @@ if [syslog_severity] == "informational" {
                 </p>
             </p>
             <h3>Graylog</h3>
-            <p> Első lépésben telepítjük a java környezetet, majd ellenőrizzük a verizót: 
-apt-get install openjdk-8-jre-headless
-java -version
-
-<h5>Elasticsearch telepítése: ld. feljebb </h5>
-<h5>Filebeat telepítése: ld. feljebb </h5>
-
-<h5>MongoDB telepítése  </h5>
-<p>A MongoDB a Graylog konfigurációjának a tárolásáért felel.....</p>
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
-echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
-sudo apt-get install -y mongodb-org
+            <p> Első lépésben telepítjük a java környezetet, majd ellenőrizzük a verizót: </p>
+<code>sudo apt-get install openjdk-8-jre-headless<br></br>java -version</code>
 
 
+<h5 className='mt-3'>Elasticsearch telepítése: ld. feljebb </h5>
+<h5 className='mt-3'>Filebeat telepítése: ld. feljebb </h5>
 
-<h5>Graylog telepítése</h5>
+<h5 className='mt-3'>MongoDB telepítése  </h5>
+<p>A MongoDB a Graylog konfigurációjának a tárolásáért felel. Nem vesz részt a naplófájlok kezelésében.</p>
+<code>sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4 <br></br>
+echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list <br></br>
+sudo apt-get install -y mongodb-org</code>
 
 
 
-wget https://packages.graylog2.org/repo/packages/graylog-4.2-repository_latest.deb
- sudo dpkg -i graylog-4.2-repository_latest.deb
-sudo apt-get update && sudo apt-get install graylog-server graylog-enterprise-plugins graylog-integrations-plugins graylog-enterprise-integrations-plugins
+<h5 className='mt-3'>Graylog telepítése</h5>
 
 
 
-<h3>Konfiguráció </h3>
+<code>wget https://packages.graylog2.org/repo/packages/graylog-4.2-repository_latest.deb<br></br>
+ sudo dpkg -i graylog-4.2-repository_latest.deb<br></br>
+sudo apt-get update && sudo apt-get install graylog-server graylog-enterprise-plugins graylog-integrations-plugins graylog-enterprise-integrations-plugins</code>
+
+
+
+<h3 className='mt-3'>Konfiguráció </h3>
 
 <h5>Elasticsearch</h5>
-sudo nano /etc/elasticsearch/elasticsearch.yml  cluster.name: graylog
+<code>sudo nano /etc/elasticsearch/elasticsearch.yml</code> 
+<pre>cluster.name: graylog </pre>
 
-sudo systemctl start elasticsearch.service
-sudo systemctl enable elasticsearch.service
-Ellenőrizzük, hogy fut -e!
-sudo systemctl status elasticsearch.service
+<code>sudo systemctl start elasticsearch.service <br></br>
+sudo systemctl enable elasticsearch.service</code>
+<p className='mt-3'>Ellenőrizzük, hogy fut -e!</p>
+<code>sudo systemctl status elasticsearch.service</code>
  
 
 	
-<h5>MongoDB</h5>
+<h5 className='mt-3'>MongoDB</h5>
 
-sudo systemctl start mongod.service
-sudo systemctl enable mongod.service
+<code>sudo systemctl start mongod.service<br></br>
+sudo systemctl enable mongod.service</code>
 
-Ellenőrizzük, hogy fut -e!
-sudo systemctl status mongod
+<p className='mt-3'>Ellenőrizzük, hogy fut -e!</p>
+<code>sudo systemctl status mongod</code>
 
 
-<h5>Filebeat </h5>
-/etc/filebeat/filebeat.yml  
- output.elasticsearch:
-  hosts: ["172.24.1.12:9200"]
+<h5 className='mt-3'>Filebeat </h5>
+<code> sudo nano /etc/filebeat/filebeat.yml  </code>
+ <pre>output.elasticsearch:
+  hosts: ["172.24.1.12:9200"]</pre>
 
+<i>Itt egyből az Elasticsearchnek továbbítunk, nem használunk Logstash-t.</i>
          
 
      
-  <h5>Graylog</h5>
+  <h5 className='mt-3'>Graylog</h5>
 
-Szerkesszük a konfigot és írjuk bele a titkosító jelszót és az admin jelszót. Generáljunk titkosító kódot. Jó tanács: Maradjon ez a jelszó 96 hosszú, mert rövidebbel nem  működik.
-<h6>pwgen -N 1 -s 96 </h6>
-NAgDMLbLBMElZioAF8sDNYn9eMe8FAV6m57kosghucJw2A3zTdPUCiNnOEK35gWkiA7go61ZdVJuogqrhez48yQr4Aj1tiXt
-Admin user jelszavához is generáljunk jelszót.
-echo -n jelszo | shasum -a 256 
-248b646537648c1fbdeb42b56771dbdb42129e8bab527ff551a1f49ce499464f
-Adjunk a konfighoz  root email cimet és időzónát is
-root_email = horvathba@inf.uni-sopron.hu
-root_timezone = UTC
-Be kell állítani a konfigban, hogy a Graylog melyik IP címen keresztül engedje a Webes felületet működni. Adjuk meg a szerverünk címét!
-http_bind_address = 172.24.1.12:9000
-Engedélyezzük, majd indítsuk el a graylogot
-systemctl enable graylog-server
-systemctl start graylog-server
-ellenőrizzük, hogy fut e:
-systemctl status graylog-server
+<p>Szerkesszük a yaml fájlt és írjuk bele a titkosító jelszót és az admin jelszót. Generáljunk titkosító kódot. Jó tanács: Maradjon ez a jelszó 96 hosszú, mert rövidebbel nem  működik.</p>
+<code>pwgen -N 1 -s 96 </code>
+
+<code>NAgDMLbLBMElZioAF8sDNYn9eMe8FAV6m57kosghucJw2A3zTdPUCiNnOEK35gWkiA7go61ZdVJuogqrhez48yQr4Aj1tiXt</code>
+<p className='mt-3'>Admin user jelszavához is generáljunk jelszót.</p>
+<code>echo -n jelszo | shasum -a 256 </code>
+<p className='mt-3'>Kimenet:</p>
+<code>248b646537648c1fbdeb42b56771dbdb42129e8bab527ff551a1f49ce499464f</code>
+<p className='mt-3'>Adjunk a konfighoz  root email cimet és időzónát is:</p>
+<pre>root_email = horvathba@inf.uni-sopron.hu<br></br>
+root_timezone = UTC</pre>
+<p>Be kell állítani a konfigban, hogy a Graylog melyik IP címen keresztül engedje a Webes felületet működni. Adjuk meg a szerverünk címét!</p>
+<pre>http_bind_address = 172.24.1.12:9000</pre>
+<p>Engedélyezzük, majd indítsuk el a graylogot</p>
+<code>systemctl enable graylog-server<br></br>
+systemctl start graylog-server</code>
+<p className='mt-3'>Ellenőrzés:</p>
+<code>systemctl status graylog-server</code>
  
 
-</p>
+
         </Container>
     )
 }
