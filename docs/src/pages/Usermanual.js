@@ -174,30 +174,30 @@ A Graylog webes felületét alapértelmezetten, a 9000-es porton érhetjük el.
 <img src={stream} width="100%"></img>
 
 
-<p>Az <b>Alerts</b> fülön különféle riasztásokat definiálhatunk. Ha egy adott feltétel teljesül, az eseményként kerül tárolásra, és értesítések indítására használható. </p>
+<p className='mt-3'>Az <b>Alerts</b> fülön különféle riasztásokat definiálhatunk. Ha egy adott feltétel teljesül, az eseményként kerül tárolásra, és értesítések indítására használható. </p>
 <p>A Graylog alapértelmezett riasztási feltételekkel és értesítésekkel rendelkezik.</p>
 
 <p>A képen az látható, hogy egy értesítés lett létrehozva "Error-Not" néven, ami egy Email értesítő. Amennyiben egy log severity-je error, akkor emailben értesíti arról az admint. </p>
 <img src={alert_not1} width="100%"></img>
 <img src={alert_not2} width="100%"></img>
 
-<p>Dashboards</p>
+<p className='mt-3'>Dashboards</p>
 
 <p>A dashboardok használatával előre definiált kereséseket lehet beépítani, hogy minden fontos adat számunkra egyetlen kattintással elérhető legyen. </p>
 <img src={dash_1} width="100%"></img>
 
-<p>Látható, hogy egy "Filebeat Dashboards" nevű irányítótábla létre lett hozva. Itt lehet csoportosítani a különféle dashboardokat.</p>
+<p className='mt-3'>Látható, hogy egy "Filebeat Dashboards" nevű irányítótábla létre lett hozva. Itt lehet csoportosítani a különféle dashboardokat.</p>
 
 <img src={dash_2} width="100%"></img>
 
-<p>Ezen a dashboardon az látszik, hogy a filebeat mely elérési utakból dolgozott a legtöbbet. (Top8) <br></br> 
+<p className='mt-3'>Ezen a dashboardon az látszik, hogy a filebeat mely elérési utakból dolgozott a legtöbbet. (Top8) <br></br> 
 
-Mint láthatjuk, a logok több, mint 45%-a a var/log/syslog mappából származik, melyben a rendszer által generált logok találhatóak.
+<p>Mint láthatjuk, a logok több, mint 45%-a a var/log/syslog mappából származik, melyben a rendszer által generált logok találhatóak.</p>
 
 
 <img src={dash_3} width="100%"></img>
 
-<p>  A dashboardokat különböző filterekkel állíthatjuk elő.  Előszőr ki kell választani, hogy milyen Field szerint csoportosítsa a logokat. A képen látható dashboard éppen a facility-k szerint csoportosít.</p> 
+<p className='mt-3'>  A dashboardokat különböző filterekkel állíthatjuk elő.  Előszőr ki kell választani, hogy milyen Field szerint csoportosítsa a logokat. A képen látható dashboard éppen a facility-k szerint csoportosít.</p> 
 <p>A Metrics fülön beállíthatjuk, hogy mit csináljon ezekkel a logokkal. Jelen esetben a Count, azaz az összeszámlálás metrika van beállítva.</p>
 <p>A Visualzation fülön azt tudjuk kiválasztani, hogy a kiszűrt adatokat milyen módon jelenítsük meg. A legnépszerűbbek közé tartozik az oszlopdiagramm, vagy a kördiagramm </p>
 
@@ -208,15 +208,15 @@ Mint láthatjuk, a logok több, mint 45%-a a var/log/syslog mappából származi
 
 <img src={inputs_1} width="100%"></img>
 
-<p>Látható, hogy egy beats input fut, ami fogadja a logokat a filebeattől.</p>
+<p className='mt-3'>Látható, hogy egy beats input fut, ami fogadja a logokat a filebeattől.</p>
 
 <p>Amennyiben rámegyünk a Show Received messages gombra, jól láható, hogy megkapja a graylog a filebeattől az üzeneteket.</p>
 <img src={beats_inupt2} width="100%"></img>
 
 
-<h5>Felhasználó kezelés</h5>
+<h5 className='mt-3'>Felhasználó kezelés</h5>
 
-A Felhasználó szakasz a meglévő felhasználók listáját jeleníti meg, beleértve a gyors áttekintéshez hasznos további információkat is.
+<p>A Felhasználó szakasz a meglévő felhasználók listáját jeleníti meg, beleértve a gyors áttekintéshez hasznos további információkat is.</p>
 
 
 <img src={user_overw} width="100%"></img>
