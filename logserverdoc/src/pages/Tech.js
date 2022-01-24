@@ -303,6 +303,15 @@ output {
 
 
                         Egy központosított naplókezelési megoldás, amely nyitott szabványok szerint készült a naplófájlok terabájtjainak rögzítésére, tárolására és valós idejű elemzésére, lehetővé téve a real-time  keresést. A Graylog lehetővé teszi a méretezhető naplókezelési megoldások kiválasztását, hogy többet tudjon kezelni biztonsági és teljesítményadataival. Az adott vállalat méretétől, technológiáitól vagy konfigurációitól függetlenül a Graylog megfelelő lehetőséget kínál.
+<br></br>
+                       <br></br> <h5> Négy komponensből áll:</h5>  </p> 
+                        </p>
+                       <ul>
+                        <li>Elasticsearch 7.15.2</li>
+                        <li>MongoDB 4.0.27</li>
+                        <li>Filebeat 7.15.2</li>
+                       <li>Graylog 4.2.1</li> </ul> 
+
 
          <h5>Autentikáció</h5>
 
@@ -317,17 +326,17 @@ A Graylog Sidecar egy konfigurációkezelő rendszer különböző log gyűjtők
 A Graylog beállítások adatok nélkül semmit sem érnek. A Graylog inputok felelősek a naplóüzenetek elfogadásáért. Néhány alapértelmezett üzenettípus alapértelmezés szerint elérhető a Graylogban. 
 
 
-<h6><br></br>Log források: </h6>
+<h5><br></br>Log források: </h5>
 <ul>
-<li> <b> Ingest syslog  </b> </li>
-<li>Ingest journald </li>
-<li>Ingest Windows eventlog</li>
-<li>Ingest CEF</li>
-<li>Ingest Raw/Plaintext</li>
-<li>Ingest GELF</li>
-<li>Ingest from files</li>
-<li>Ingest JSON path from HTTP API</li>
-<li>Ingest Application Data</li>
+<li> <b> Syslog  </b> </li>
+<li> Journald </li>
+<li> Windows eventlog</li>
+<li> CEF</li>
+<li> Raw/Plaintext</li>
+<li> GELF</li>
+<li> From files</li>
+<li> JSON path from HTTP API</li>
+<li> Application Data</li>
 </ul> 
 
 
@@ -340,23 +349,17 @@ EGYEDI BEMENETEK:<br></br>
 <li>Palo Alto Networks bemenet</li>
 
 </ul>
-A Beats nyílt forráskódú adatszállítók, amelyeket "ügynökként" telepít a szervereire, hogy  adatokat küldjön az Elasticsearch -nek . Az Elastic ütemeket biztosít a rögzítéshez:
+A Beats nyílt forráskódú adatszállítók, amelyeket "ügynökként" telepít a szervereire, hogy  adatokat küldjön az Elasticsearch -nek . Az Elastic ütemeket biztosít a rögzítéshez.
+<br></br>
 
 
-
-<b>Filebeat </b>
+<br></br><b> <h5>Filebeat  </h5></b> <br></br>
 
 
 A Filebeat egy szállító a naplóadatok továbbításához és központosításához. A kiszolgálókra "ügynökként" telepített Filebeat figyeli a megadott naplófájlokat vagy helyeket, összegyűjti a naplóeseményeket, és továbbítja azokat az Elasticsearch vagy a Logstash felé indexelés céljából.
 
 
-                        Négy komponensből áll: </p> 
-                        </p>
-                       <ul>
-                        <li>Elasticsearch 7.15.2</li>
-                        <li>MongoDB 4.0.27</li>
-                        <li>Filebeat 7.15.2</li>
-                       <li>Graylog 4.2.1</li> </ul> 
+                      
                        
 
                         <img src={graylog} width="50%" height="50%" className='mb-3'></img>

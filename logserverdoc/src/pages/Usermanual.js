@@ -19,6 +19,37 @@ import dashboard1 from '../images/dashboard1.png'
 import dashboard2 from '../images/dashboard2.png'
 import pipelines from '../images/pipelines.png'
 import grokdebug from '../images/grokdebug.png'
+
+import bej from '../images/bej.JPG'
+
+import alert_not1 from '../images/alert_not1.JPG'
+import alert_not2 from '../images/alert_not2.JPG'
+import beats_input from '../images/Beats_input.JPG'
+import beats_inupt2 from '../images/beats_inupt2.JPG'
+import dash_1 from '../images/dash_1.JPG'
+import dash_2 from '../images/dash_2.JPG'
+import dash_3 from '../images/dash_3.JPG'
+import index1 from '../images/index1.JPG'
+import inputs_1 from '../images/inputs_1.JPG'
+import kezdolap from '../images/kezdolap.JPG'
+import stream from '../images/stream.JPG'
+import user_create from '../images/user_create.JPG'
+import user_overw from '../images/user_overw.JPG'
+import user_testuser from '../images/user_testuser.JPG'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const Usermanual = () => {
     return (
         <Container className='mt-5'>
@@ -123,7 +154,104 @@ const Usermanual = () => {
                      </li>
                      </ul></Alert>
         <h3>Graylog</h3>
-        <p>...</p>
+        <p>
+A Graylog webes felületét alapértelmezetten, a 9000-es porton érhetjük el.
+</p>
+
+<img src={bej} width="60%"></img>
+
+<p>Az első bejelentkezéshez a Graylog konfigurációjában megadott jelszóval léphetünk be, majd később tudunk hozzáadni user-eket. (bővebben lent) </p>
+
+<p>Bejelentkezés után ez fogad minket:</p>
+
+<img src={kezdolap} width="100%"></img> <br></br>
+
+<br></br><p>Itt két dolgot láthatunk. Az egyik egy dashboard, ami azt mutatja meg, hogy hogyan alakultak dátum és darabszám szerint a beérkezett logok. November közepétől december közepéig keletkezett a rendszerben kb. 400.000 bejegyzés, majd később a december végét - január közepét felölelő időintervallumban kb 15.000 bejegyzés. </p>
+<p>Alul pedig időrendi sorrendben láthatjuk a logok tartalmát, és forrását.</p>
+       
+<p> A <b>Streams</b> fülön a létrehozott Graylog-folyamokat láthatjuk. </p>
+<p>A Graylog folyamok egy olyan mehanizmus alapján működnek, amely az üzeneteket valós időben kategóriákba irányítja feldolgozásuk közben.</p>
+<img src={stream} width="100%"></img>
+
+
+<p>Az <b>Alerts</b> fülön különféle riasztásokat definiálhatunk. Ha egy adott feltétel teljesül, az eseményként kerül tárolásra, és értesítések indítására használható. </p>
+<p>A Graylog alapértelmezett riasztási feltételekkel és értesítésekkel rendelkezik.</p>
+
+<p>A képen az látható, hogy egy értesítés lett létrehozva "Error-Not" néven, ami egy Email értesítő. Amennyiben egy log severity-je error, akkor emailben értesíti arról az admint. </p>
+<img src={alert_not1} width="100%"></img>
+<img src={alert_not2} width="100%"></img>
+
+<p>Dashboards</p>
+
+<p>A dashboardok használatával előre definiált kereséseket lehet beépítani, hogy minden fontos adat számunkra egyetlen kattintással elérhető legyen. </p>
+<img src={dash_1} width="100%"></img>
+
+<p>Látható, hogy egy "Filebeat Dashboards" nevű irányítótábla létre lett hozva. Itt lehet csoportosítani a különféle dashboardokat.</p>
+
+<img src={dash_2} width="100%"></img>
+
+<p>Ezen a dashboardon az látszik, hogy a filebeat mely elérési utakból dolgozott a legtöbbet. (Top8) <br></br> 
+
+Mint láthatjuk, a logok több, mint 45%-a a var/log/syslog mappából származik, melyben a rendszer által generált logok találhatóak.
+
+
+<img src={dash_3} width="100%"></img>
+
+<p>  A dashboardokat különböző filterekkel állíthatjuk elő.  Előszőr ki kell választani, hogy milyen Field szerint csoportosítsa a logokat. A képen látható dashboard éppen a facility-k szerint csoportosít.</p> 
+<p>A Metrics fülön beállíthatjuk, hogy mit csináljon ezekkel a logokkal. Jelen esetben a Count, azaz az összeszámlálás metrika van beállítva.</p>
+<p>A Visualzation fülön azt tudjuk kiválasztani, hogy a kiszűrt adatokat milyen módon jelenítsük meg. A legnépszerűbbek közé tartozik az oszlopdiagramm, vagy a kördiagramm </p>
+
+
+<h5>Inputs</h5><br></br>
+
+<p>Az Input fülön adhatunk meg olyan bemeneteket, amik a naplóüzenetek elfogadásáért felelnek. </p>
+
+<img src={inputs_1} width="100%"></img>
+
+<p>Látható, hogy egy beats input fut, ami fogadja a logokat a filebeattől.</p>
+
+<p>Amennyiben rámegyünk a Show Received messages gombra, jól láható, hogy megkapja a graylog a filebeattől az üzeneteket.</p>
+<img src={beats_inupt2} width="100%"></img>
+
+
+<h5>Felhasználó kezelés</h5>
+
+A Felhasználó szakasz a meglévő felhasználók listáját jeleníti meg, beleértve a gyors áttekintéshez hasznos további információkat is.
+
+
+<img src={user_overw} width="100%"></img>
+
+<p>A Create User gombra kattintva felvehetünk új felhasználót. </p>
+<img src={user_create} width="70%"></img>
+<p> Következő belépéskor a megadott felhasználónévvel és jelszóval is be tud lépni az adott felhasználó.</p>
+
+<p> Az Edit Role fülön a szerepköröket tudjuk módosítani. Ha azt szeretnénk, hogy az újonnan felvitt test usernek csak Dashboard Creator joga legyen, akkor ehhez a szerepkörhöz hozzá tudjuk adni ezt a felhasználót. </p>
+
+
+
+<Alert variant='warning'><Alert.Heading as='h6'>Figyelem
+                </Alert.Heading>Az összehasonlító munka során csak a bemutatott füleket tanulmányoztuk át.
+                 Ám ezekkel a lehetőségek nem fogytak el. A jövőben több figyelmet kaphatnak az alábbiak:
+                 <ul>
+                     <li>
+                         Pipelines
+                     </li>
+                     <li>
+                         Sidecars
+                     </li>
+                     <li>
+                          Collectors
+                     </li>
+                    
+                     
+                     </ul></Alert>
+
+
+
+
+</p>
+
+
     </Container>
     )
 }
