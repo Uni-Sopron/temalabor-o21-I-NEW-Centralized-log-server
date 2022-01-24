@@ -12,7 +12,7 @@ return (
     <p className='mt-2'>
         A <b>cyan Security Group</b> azt szeretné, hogy a hálózat sokféle eszközének rendszernaplóit, valamint az egyedi
         és nem egyedi szoftveres megoldásokat
-        monitorozni (<b>akár valós időben, indexelve!</b>) tudjuk a magas rendelkezésre állás és gyors hibakezelések
+        monitorozni (<b>akár valós időben!</b>) tudjuk a magas rendelkezésre állás és gyors hibakezelések
         érdekében. Ehhez nem elég hosszasan böngészni a naplókat lokálisan.
         Erre nincsen idő egy vállalati környezetben.
         Sokszor a naplósorokat nem is lehet értelmezni (pl. többsoros, bonyolult), ezeket érdemes lenne úgy
@@ -63,7 +63,9 @@ return (
                 Ezek alapvetően rendszermérnöki problémák, melyekre léteznek nyílt forráskódú megoldások, így nem kell nekünk megírnunk a sajátunkat, hanem
                 dolgozhatunk a jól bevált költséghatékony technológiákkal. 
             </p>
-            Ismert log kollektorok: <b>Graylog</b>, <b>Logstash</b>, <b>Fluentd</b>, <b>Flume</b>, <b>Octopussy</b>, <b>Rsyslog</b>, <b>Syslog-ng</b>
+            Ismert log kollektorok: <b>Graylog</b>, <b>Logstash</b>, <b>Fluentd</b>, <b>Flume</b>, <b>Octopussy</b>, <b>Rsyslog</b>, <b>Syslog-ng</b>.
+            A log kollektorok egyikét kell olyan rendszerbe ültetni, ahol van egy működő adatbázis és egy webes interfész.
+            
             <p className='mt-2'>
                 A munka megkezdése előtt le kellett fektetni a követelményeket, melyek egyeznek a cég elvárásaival,
                 a tapasztalatunkkal és a tárgy teljesítéséhez szükséges feltételekkel. Ezek a következők:
@@ -78,12 +80,7 @@ return (
                             A cégcsoport szinte teljesen open-source szoftvereket használ, így nekünk is ezekkel kell dolgoznunk.
                         </div>
                     </ListGroupItem>
-                    <ListGroupItem as='li'>
-                        <b>Index-alapú tárolás</b>
-                        <div>
-                            A modern konvencióknak megfelelően indexelve tároljunk.
-                        </div>
-                    </ListGroupItem>
+                    
                     <ListGroupItem as='li'>
                         <b>Nyers logok processzálása</b>
                         <div>

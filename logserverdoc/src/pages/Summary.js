@@ -26,7 +26,8 @@ const Summary = () => {
                             <td><b>Beépített funkciók</b></td>
                             <td>Előny: Nem szűkölködik beépített funkciókban.<br></br>Hátrány: Alapértelmezetten nincsen felhasználókezelés. Pluginból érhető el.</td>
                             <td>Az EFK Stack szintén tartalmazza a Kibana-t. Az Elastic jellemzők itt is érvényesek.</td>
-                            <td>Rengeteg funkció, felhasználókezelés alapértelmezetten.</td>
+                            <td>Előny: Rengeteg funkció, felhasználókezelés alapértelmezetten. <br>
+                            </br>Nagyobb hátrány: nincs indexelés, pontosabban a Graylog ezt kezeli saját maga, ami azt jelenti, hogy egy helyen gyűlik minden adat.</td>
                         </tr>
 
                         <tr>
@@ -76,7 +77,12 @@ const Summary = () => {
                     </Table>
             <p>A téma célja egyfajta elmélyülés volt a linux-alapú rendszerek, a naplózás és a centralizált log szerverek világában.
             Három elterjedt nyílt technológiával ismerkedtünk meg, és némi tapasztalatot szereztünk a rendszergazdai feladatok körében.
-            A félév végén tartott konzultáción a cyan Security két lehetséges továbbhaladási irányt jelölt meg:</p>
+            Azt állapítottuk meg, hogy a vizsgált rendszerek igaz, hogy az Elastic attribútumokat veszik alapul, mégis különbözőek:
+            Az Elastic Stack-nél a performancia a gyengepont, az EFK próbál ezen segíteni, a Graylog pedig kicsit olyan érzést kelt,
+            mintha nem is nyílt rendszer lenne, az olyan döntések miatt, mint hogy nem teszi lehetővé az indexek kezelését.
+            Az összehasonlító vizsgálatot valós scenarioknak megfelelően méretezett környezetekben érdemes folytatni, és úgy tűnik erre lesz lehetőség!
+           </p>
+           <p> A félév végén tartott konzultáción a cyan Security két lehetséges továbbhaladási irányt jelölt meg:</p>
             <ListGroup as="ol" numbered >
                 <ListGroupItem as="li"><b>A rendszer kiépítésének optimalizálása</b>
                 <div>A rendszerek alkalmazása viszonylag könnyű,
