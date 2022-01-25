@@ -26,7 +26,7 @@ const Timeline = () => {
             A témakidolgozás egy összehasonlítás három, piacon elterjedt technológiáról:
             <ul>
                 <li>
-                Rácz Máté - ELK Stack (Elastic)
+                Rácz Máté - Elastic Stack
                 </li>
                 <li>
                 Mandl Ábel - EFK Stack
