@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/temalabor-o21-I-NEW-Centralized-log-server/static/css/main.86f01eac.chunk.css",
-    "main.js": "/temalabor-o21-I-NEW-Centralized-log-server/static/js/main.c3a14ffb.chunk.js",
-    "main.js.map": "/temalabor-o21-I-NEW-Centralized-log-server/static/js/main.c3a14ffb.chunk.js.map",
+    "main.js": "/temalabor-o21-I-NEW-Centralized-log-server/static/js/main.18330d74.chunk.js",
+    "main.js.map": "/temalabor-o21-I-NEW-Centralized-log-server/static/js/main.18330d74.chunk.js.map",
     "runtime-main.js": "/temalabor-o21-I-NEW-Centralized-log-server/static/js/runtime-main.d6178ca0.js",
     "runtime-main.js.map": "/temalabor-o21-I-NEW-Centralized-log-server/static/js/runtime-main.d6178ca0.js.map",
     "static/css/2.841d923d.chunk.css": "/temalabor-o21-I-NEW-Centralized-log-server/static/css/2.841d923d.chunk.css",
-    "static/js/2.81e108dc.chunk.js": "/temalabor-o21-I-NEW-Centralized-log-server/static/js/2.81e108dc.chunk.js",
-    "static/js/2.81e108dc.chunk.js.map": "/temalabor-o21-I-NEW-Centralized-log-server/static/js/2.81e108dc.chunk.js.map",
+    "static/js/2.9df285a5.chunk.js": "/temalabor-o21-I-NEW-Centralized-log-server/static/js/2.9df285a5.chunk.js",
+    "static/js/2.9df285a5.chunk.js.map": "/temalabor-o21-I-NEW-Centralized-log-server/static/js/2.9df285a5.chunk.js.map",
     "static/js/3.2b0b9e52.chunk.js": "/temalabor-o21-I-NEW-Centralized-log-server/static/js/3.2b0b9e52.chunk.js",
     "static/js/3.2b0b9e52.chunk.js.map": "/temalabor-o21-I-NEW-Centralized-log-server/static/js/3.2b0b9e52.chunk.js.map",
     "index.html": "/temalabor-o21-I-NEW-Centralized-log-server/index.html",
     "static/css/2.841d923d.chunk.css.map": "/temalabor-o21-I-NEW-Centralized-log-server/static/css/2.841d923d.chunk.css.map",
     "static/css/main.86f01eac.chunk.css.map": "/temalabor-o21-I-NEW-Centralized-log-server/static/css/main.86f01eac.chunk.css.map",
-    "static/js/2.81e108dc.chunk.js.LICENSE.txt": "/temalabor-o21-I-NEW-Centralized-log-server/static/js/2.81e108dc.chunk.js.LICENSE.txt",
+    "static/js/2.9df285a5.chunk.js.LICENSE.txt": "/temalabor-o21-I-NEW-Centralized-log-server/static/js/2.9df285a5.chunk.js.LICENSE.txt",
     "static/media/Beats_input.f3538ec6.JPG": "/temalabor-o21-I-NEW-Centralized-log-server/static/media/Beats_input.f3538ec6.JPG",
     "static/media/alert_not1.69487e79.JPG": "/temalabor-o21-I-NEW-Centralized-log-server/static/media/alert_not1.69487e79.JPG",
     "static/media/alert_not2.276ce0c4.JPG": "/temalabor-o21-I-NEW-Centralized-log-server/static/media/alert_not2.276ce0c4.JPG",
@@ -58,8 +58,8 @@
   "entrypoints": [
     "static/js/runtime-main.d6178ca0.js",
     "static/css/2.841d923d.chunk.css",
-    "static/js/2.81e108dc.chunk.js",
+    "static/js/2.9df285a5.chunk.js",
     "static/css/main.86f01eac.chunk.css",
-    "static/js/main.c3a14ffb.chunk.js"
+    "static/js/main.18330d74.chunk.js"
   ]
 }
