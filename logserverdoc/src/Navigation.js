@@ -6,7 +6,7 @@ function Navigation() {
     <>
       <Navbar collapseOnSelect expand='sm' bg='dark' variant='dark'>
         <Container>
-          <Navbar.Brand>Centralized Log Server</Navbar.Brand>
+          <Navbar.Brand href="/">Centralized Log Server</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav"/>
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav>
