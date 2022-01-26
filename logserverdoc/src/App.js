@@ -14,7 +14,7 @@ function App() {
 
   return (
  <div className="App">
-   	<Router basename="/temalabor-o21-I-NEW-Centralized-log-server/"></Router>
+   	<Router basename="/"></Router>
     <Navigation />
     <Routes>
       <Route exact path="/" element={ <Introduction/> }/>
