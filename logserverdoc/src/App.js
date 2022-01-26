@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter as Router } from "react-router-dom";
 import Navigation from "./Navigation";
 import Introduction from './pages/Introduction'
 import Dev from './pages/Dev'
@@ -14,6 +14,7 @@ function App() {
 
   return (
  <div className="App">
+   	<Router basename="/temalabor-o21-I-NEW-Centralized-log-server/"></Router>
     <Navigation />
     <Routes>
       <Route exact path="/" element={ <Introduction/> }/>
